@@ -140,6 +140,14 @@ document.getElementById("searchInput");
 
 let designersData = [];
 
+function getImageUrl(foto){
+    if(!foto) return "";
+    if(foto.startsWith("http") || foto.startsWith("../")) return foto;
+    if(foto.startsWith("/")) return `/api${foto}`;
+    if(foto.includes("uploads/")) return `/api/${foto}`;
+    return `../foto/${foto}`;
+}
+
 function renderDesigners(data){
 
     popularGrid.innerHTML = "";
@@ -170,9 +178,11 @@ function renderDesigners(data){
 
     data.forEach(item => {
 
+        const fotoUrl = getImageUrl(item.foto_profile);
+
         const foto =
         item.foto_profile
-        ? `<img src="../foto/${item.foto_profile}" alt="${item.nickname}">`
+        ? `<img src="${fotoUrl}" alt="${item.nickname}">`
         : `<div class="popular-image empty-image"></div>`;
 
         popularGrid.innerHTML += `

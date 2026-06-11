@@ -211,6 +211,14 @@ if(nama){
 
 }
 
+function getImageUrl(foto){
+    if(!foto) return "";
+    if(foto.startsWith("http") || foto.startsWith("../")) return foto;
+    if(foto.startsWith("/")) return `/api${foto}`;
+    if(foto.includes("uploads/")) return `/api/${foto}`;
+    return `../foto/${foto}`;
+}
+
 const params =
 new URLSearchParams(window.location.search);
 
@@ -246,7 +254,7 @@ async function loadFashion(){
         if(data.foto_karya){
 
             document.getElementById("fotoFashion").src =
-            `../foto/${data.foto_karya}`;
+            getImageUrl(data.foto_karya);
 
         }
 
@@ -259,7 +267,7 @@ async function loadFashion(){
         if(data.foto_profile){
 
             document.getElementById("fotoDesigner").src =
-            `../foto/${data.foto_profile}`;
+            getImageUrl(data.foto_profile);
 
         }
 

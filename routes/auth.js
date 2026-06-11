@@ -508,33 +508,7 @@ router.get("/karya/:id", (req,res)=>{
 
 });
 
-router.get("/designer/karya/:id", (req,res)=>{
 
-    const id = req.params.id;
-
-    db.query(
-        `
-        SELECT *
-        FROM gallery_karya
-        WHERE id_karya = ?
-        `,
-        [id],
-        (err,result)=>{
-
-            if(err){
-
-                console.log(err);
-
-                return res.status(500).json(err);
-
-            }
-
-            res.json(result[0]);
-
-        }
-    );
-
-});
 
 
 

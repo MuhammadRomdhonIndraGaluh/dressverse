@@ -138,6 +138,14 @@ if (nama) {
 
 }
 
+function getImageUrl(foto){
+    if(!foto) return "";
+    if(foto.startsWith("http") || foto.startsWith("../")) return foto;
+    if(foto.startsWith("/")) return `/api${foto}`;
+    if(foto.includes("uploads/")) return `/api/${foto}`;
+    return `../foto/${foto}`;
+}
+
 const params =
 new URLSearchParams(
 window.location.search
@@ -159,10 +167,14 @@ fetch(
     ).innerText =
     event.nama_event;
 
+    const dateStr = new Date(event.tanggal).toLocaleDateString("id-ID", {
+        day: "numeric", month: "long", year: "numeric"
+    });
+
     document.getElementById(
     "tanggalEvent"
     ).innerText =
-    "📅 " + event.tanggal;
+    "📅 " + dateStr;
 
     document.getElementById(
     "waktuEvent"
@@ -179,10 +191,10 @@ fetch(
     ).innerText =
     event.deskripsi;
 
-    document.getElementById(
-    "gambarEvent"
-    ).src =
-    `${event.gambar}`;
+    // Fix multiple elements with same ID
+    document.querySelectorAll("#gambarEvent").forEach(img => {
+        img.src = getImageUrl(event.gambar);
+    });
 
 });
 

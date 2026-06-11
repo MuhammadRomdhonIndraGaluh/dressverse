@@ -140,6 +140,7 @@ api.use(
 
 // Mount API router
 app.use("/api", api);
+app.use("/", api); // Fallback if Vercel strips /api during rewrite
 
 // app.use(
 // "/uploads",

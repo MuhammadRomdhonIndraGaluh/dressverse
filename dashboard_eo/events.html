@@ -177,6 +177,22 @@ id="eventContainer"
 </div>
 
 <script>
+    function getImageUrl(foto){
+        if(!foto){
+            return "";
+        }
+        if(foto.startsWith("http") || foto.startsWith("../")){
+            return foto;
+        }
+        if(foto.startsWith("/")){
+            return `/api${foto}`;
+        }
+        if(foto.includes("uploads/")){
+            return `/api/${foto}`;
+        }
+        return `../foto/${foto}`;
+    }
+
     const user = JSON.parse(
         localStorage.getItem("user") || "null"
     );
@@ -241,7 +257,7 @@ fetch("/api/event")
             <div class="event-image">
 
                 <img
-                src=`${event.gambar}`
+                src="${getImageUrl(event.gambar)}"
                 alt="${event.nama_event}"
                 >
 

@@ -146,6 +146,14 @@ async function loadGallery(kategori = "All") {
 
         galleryGrid.innerHTML = "";
 
+        function getImageUrl(foto){
+            if(!foto) return "";
+            if(foto.startsWith("http") || foto.startsWith("../")) return foto;
+            if(foto.startsWith("/")) return `/api${foto}`;
+            if(foto.includes("uploads/")) return `/api/${foto}`;
+            return `../foto/${foto}`;
+        }
+
         data.forEach(item => {
 
             galleryGrid.innerHTML += `
@@ -153,7 +161,7 @@ async function loadGallery(kategori = "All") {
                 <a href="fashion.html?id=${item.id_karya}"
                 class="gallery-card">
 
-                    <img src="../foto/${item.foto_karya}">
+                    <img src="${getImageUrl(item.foto_karya)}">
 
                 </a>
 

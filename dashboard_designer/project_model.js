@@ -36,7 +36,7 @@ fetch(
 
         <img
         class="model-photo"
-        src=`${item.foto}`
+        src="${getImageUrl(item.foto)}"
         >
 
         <div class="info">
@@ -126,54 +126,6 @@ Lihat Foto
 
 });
 
-router.put("/approve/:id", (req, res) => {
-
-    const { id } = req.params;
-
-    const sql = `
-        UPDATE pendaftaran_model
-        SET status = 'Disetujui'
-        WHERE id_pendaftaran = ?
-    `;
-
-    db.query(sql,[id],(err,result)=>{
-
-        if(err){
-            return res.status(500).json(err);
-        }
-
-        res.json({
-            message:"Lamaran disetujui"
-        });
-
-    });
-
-});
-
-router.put("/reject/:id", (req,res)=>{
-
-    const { id } = req.params;
-
-    const sql = `
-        UPDATE pendaftaran_model
-        SET status = 'Ditolak'
-        WHERE id_pendaftaran = ?
-    `;
-
-    db.query(sql,[id],(err,result)=>{
-
-        if(err){
-            return res.status(500).json(err);
-        }
-
-        res.json({
-            message:"Lamaran ditolak"
-        });
-
-    });
-
-});
-
 function approve(id){
 
     fetch(
@@ -257,4 +209,20 @@ window.reject = function(id) {
         alert(data.message);
         location.reload();
     });
+}
+
+function getImageUrl(foto){
+    if(!foto){
+        return "";
+    }
+    if(foto.startsWith("http") || foto.startsWith("../")){
+        return foto;
+    }
+    if(foto.startsWith("/")){
+        return `/api${foto}`;
+    }
+    if(foto.includes("uploads/")){
+        return `/api/${foto}`;
+    }
+    return `../foto/${foto}`;
 }

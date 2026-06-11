@@ -75,6 +75,14 @@ if(nama){
     document.getElementById("navbar-user").innerText = nama;
 }
 
+function getImageUrl(foto){
+    if(!foto) return "";
+    if(foto.startsWith("http") || foto.startsWith("../")) return foto;
+    if(foto.startsWith("/")) return `/api${foto}`;
+    if(foto.includes("uploads/")) return `/api/${foto}`;
+    return `../foto/${foto}`;
+}
+
 fetch("/api/event")
 
 .then(res => res.json())
@@ -137,7 +145,7 @@ fetch("/api/event")
         <div class="event-img">
 
             <img
-            src="../foto/${topEvent.gambar}"
+            src="${getImageUrl(topEvent.gambar)}"
             alt="${topEvent.nama_event}"
             >
 
@@ -223,7 +231,7 @@ fetch("/api/event")
                 <div class="ticket-image">
 
                     <img
-                    src="../foto/${event.gambar}"
+                    src="${getImageUrl(event.gambar)}"
                     alt="${event.nama_event}"
                     >
 

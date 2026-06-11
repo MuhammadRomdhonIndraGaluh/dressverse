@@ -12,7 +12,7 @@ document.getElementById(
 );
 
 fetch(
-`/api/designer-karya/${id_desainer}`
+`/api/designer/karya/${id_desainer}`
 )
 .then(res => res.json())
 
@@ -27,7 +27,7 @@ fetch(
         <div class="card">
 
             <img
-            src=`${karya.foto_karya}`
+            src="${getFotoUrl(karya.foto_karya)}"
             >
 
             <div class="content">

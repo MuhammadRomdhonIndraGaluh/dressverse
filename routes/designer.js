@@ -51,26 +51,7 @@ router.get("/dashboard/:id_desainer", (req, res) => {
 // =======================
 
 const multer = require("multer");
-const path = require("path");
-
-const storage = multer.diskStorage({
-
-    destination: (req,file,cb)=>{
-        cb(null,"uploads/");
-    },
-
-    filename: (req,file,cb)=>{
-
-        cb(
-            null,
-            Date.now() +
-            "-" +
-            file.originalname
-        );
-
-    }
-
-});
+const { storage } = require("../config/cloudinary");
 
 const upload = multer({
     storage
@@ -121,7 +102,7 @@ router.post(
             kategori
         } = req.body;
 
-        const foto_karya = req.file.filename;
+        const foto_karya = req.file.path;
 
         const sql = `
             INSERT INTO gallery_karya
@@ -194,7 +175,7 @@ upload.single("foto_karya"),
 
     const foto_karya =
     req.file
-    ? req.file.filename
+    ? req.file.path
     : foto_lama;
 
     const sql = `

@@ -330,7 +330,7 @@ const id =
 params.get("id");
 
 fetch(
-`http://localhost:5000/event/${id}`
+`/api/event/${id}`
 )
 
 .then(res => res.json())
@@ -370,7 +370,7 @@ fetch(
     document.getElementById(
     "bannerPreview"
     ).src =
-    `http://localhost:5000/uploads/${event.gambar}`;
+    `${event.gambar}`;
 
 });
 
@@ -423,7 +423,7 @@ async function(e){
 
     const response =
     await fetch(
-    `http://localhost:5000/event/${id}`,
+    `/api/event/${id}`,
     {
         method:"PUT",
         headers:{

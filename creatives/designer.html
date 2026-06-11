@@ -196,7 +196,7 @@ async function loadDesigner(){
         }
 
         const response =
-        await fetch(`http://localhost:5000/desainer/${id}`);
+        await fetch(`/api/desainer/${id}`);
 
         const data =
         await response.json();
@@ -245,7 +245,7 @@ async function loadDesigner(){
         }
 
         const karyaResponse =
-        await fetch(`http://localhost:5000/designer-karya/${id}`);
+        await fetch(`/api/designer-karya/${id}`);
 
         const karyaData =
         await karyaResponse.json();
@@ -305,7 +305,7 @@ document.getElementById("followBtn")
 
     if(localStorage.getItem(`followed_${id}`)){
 
-        await fetch(`http://localhost:5000/unfollow/${id}`, {
+        await fetch(`/api/unfollow/${id}`, {
             method:"PUT"
         });
 
@@ -323,7 +323,7 @@ document.getElementById("followBtn")
 
     }
 
-    await fetch(`http://localhost:5000/follow/${id}`, {
+    await fetch(`/api/follow/${id}`, {
         method:"PUT"
     });
 

@@ -229,7 +229,7 @@ async function loadFashion(){
         }
 
         const response =
-        await fetch(`http://localhost:5000/fashion/${id}`);
+        await fetch(`/api/fashion/${id}`);
 
         const data =
         await response.json();

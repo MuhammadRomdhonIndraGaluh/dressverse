@@ -12,7 +12,7 @@ document.getElementById(
 );
 
 fetch(
-`http://localhost:5000/designer-karya/${id_desainer}`
+`/api/designer-karya/${id_desainer}`
 )
 .then(res => res.json())
 
@@ -27,7 +27,7 @@ fetch(
         <div class="card">
 
             <img
-            src="http://localhost:5000/uploads/${karya.foto_karya}"
+            src=`${karya.foto_karya}`
             >
 
             <div class="content">
@@ -102,7 +102,7 @@ function deleteKarya(id){
 
         fetch(
 
-        `http://localhost:5000/designer/karya/${id}`,
+        `/api/designer/karya/${id}`,
 
         {
             method:"DELETE"
@@ -141,14 +141,14 @@ function getFotoUrl(foto){
     }
 
     if(foto.startsWith("/")){
-        return `http://localhost:5000${foto}`;
+        return `/api${foto}`;
     }
 
     if(foto.includes("uploads/")){
-        return `http://localhost:5000/${foto}`;
+        return `/api/${foto}`;
     }
 
-    return `http://localhost:5000/uploads/${foto}`;
+    return `${foto}`;
 }
 
 function tampilkanTopProfile(data){
@@ -207,7 +207,7 @@ function tampilkanTopProfile(data){
 }
 
 fetch(
-`http://localhost:5000/designer/dashboard/${id_desainer}`
+`/api/designer/dashboard/${id_desainer}`
 )
 
 .then(res => res.json())

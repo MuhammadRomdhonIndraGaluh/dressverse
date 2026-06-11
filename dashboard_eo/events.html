@@ -219,7 +219,7 @@ id="eventContainer"
 
     }
 
-fetch("http://localhost:5000/event")
+fetch("/api/event")
 
 .then(res => res.json())
 
@@ -241,7 +241,7 @@ fetch("http://localhost:5000/event")
             <div class="event-image">
 
                 <img
-                src="http://localhost:5000/uploads/${event.gambar}"
+                src=`${event.gambar}`
                 alt="${event.nama_event}"
                 >
 

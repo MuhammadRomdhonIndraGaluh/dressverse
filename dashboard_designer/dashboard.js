@@ -11,7 +11,7 @@ user.id_user;
 // =====================
 
 fetch(
-`http://localhost:5000/designer/dashboard/${id_desainer}`
+`/api/designer/dashboard/${id_desainer}`
 )
 
 .then(res => res.json())
@@ -50,7 +50,7 @@ data.followers;
 // =====================
 
 fetch(
-`http://localhost:5000/designer/karya/${id_desainer}`
+`/api/designer/karya/${id_desainer}`
 )
 
 .then(res => res.json())

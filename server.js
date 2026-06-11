@@ -4,28 +4,13 @@ const multer = require("multer");
 require("dotenv").config();
 
 const db = require("./config/db");
-const storage = multer.diskStorage({
-
-    destination: (req, file, cb) => {
-
-        cb(null, "uploads/");
-
-    },
-
-    filename: (req, file, cb) => {
-
-        cb(
-            null,
-            Date.now() + "-" + file.originalname
-        );
-
-    }
-
-});
+const { storage } = require("./config/cloudinary");
 
 const upload = multer({
     storage: storage
 });
+
+const api = express.Router();
 
 const authRoutes = require("./routes/auth");
 
@@ -36,18 +21,18 @@ const path = require("path");
 app.use(cors());
 app.use(express.json());
 
-app.use(
-    "/uploads",
-    express.static(
-        path.join(__dirname, "uploads")
-    )
-);
+// app.use(
+//     "/uploads",
+//     express.static(
+//         path.join(__dirname, "uploads")
+//     )
+// );
 
-app.use("/", authRoutes);
+api.use("/", authRoutes);
 
 const PORT = process.env.PORT || 5000;
 
-app.get("/gallery", (req, res) => {
+api.get("/gallery", (req, res) => {
 
     const gallery = [
 
@@ -91,7 +76,7 @@ app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
 
-app.post(
+api.post(
     "/apply-model",
     upload.single("foto"),
     (req, res) => {
@@ -102,7 +87,7 @@ app.post(
             portof
         } = req.body;
 
-        const foto = req.file.filename;
+        const foto = req.file.path; // Save Cloudinary URL instead of local filename
 
         const sql = `
             INSERT INTO pendaftaran_model
@@ -143,15 +128,18 @@ app.post(
 const designerRoutes =
 require("./routes/designer");
 
-app.use("/designer", designerRoutes);
+api.use("/designer", designerRoutes);
 
 const projectModelRoutes =
 require("./routes/project_model");
 
-app.use(
+api.use(
     "/project-model",
     projectModelRoutes
 );
+
+// Mount API router
+app.use("/api", api);
 
 // app.use(
 // "/uploads",
@@ -159,3 +147,5 @@ app.use(
 // path.join(__dirname,"uploads")
 // )
 // );
+
+module.exports = app;

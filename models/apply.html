@@ -233,7 +233,7 @@ async function loadProject() {
 
         const response =
         await fetch(
-        `http://localhost:5000/project/${id}`
+        `/api/project/${id}`
         );
 
         const data =
@@ -327,7 +327,7 @@ document.getElementById("applyForm")
     try {
 
         const response = await fetch(
-            "http://localhost:5000/apply-model",
+            "/api/apply-model",
             {
                 method: "POST",
                 body: formData

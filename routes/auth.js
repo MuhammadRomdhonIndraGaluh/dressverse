@@ -314,28 +314,10 @@ router.put("/event/:id", (req, res) => {
 });
 
 const multer = require("multer");
-
-const storageEvent = multer.diskStorage({
-
-    destination: (req, file, cb) => {
-
-        cb(null, "uploads/");
-
-    },
-
-    filename: (req, file, cb) => {
-
-        cb(
-            null,
-            Date.now() + "-" + file.originalname
-        );
-
-    }
-
-});
+const { storage } = require("../config/cloudinary");
 
 const uploadEvent = multer({
-    storage: storageEvent
+    storage: storage
 });
 
 router.post(
@@ -356,7 +338,7 @@ router.post(
 
         const gambar =
             req.file
-            ? req.file.filename
+            ? req.file.path
             : null;
 
         const sql = `
@@ -556,25 +538,7 @@ router.get("/designer/karya/:id", (req,res)=>{
 
 
 
-const storage = multer.diskStorage({
-
-    destination: (req, file, cb) => {
-
-        cb(null, "uploads/");
-
-    },
-
-    filename: (req, file, cb) => {
-
-        cb(
-            null,
-            Date.now() + "-" + file.originalname
-        );
-
-    }
-
-});
-
+// Re-use Cloudinary storage configuration
 const upload = multer({
     storage: storage
 });
@@ -590,7 +554,7 @@ router.post(
             portof
         } = req.body;
 
-        const foto = req.file.filename;
+        const foto = req.file.path;
 
         const sql = `
             INSERT INTO pendaftaran_model

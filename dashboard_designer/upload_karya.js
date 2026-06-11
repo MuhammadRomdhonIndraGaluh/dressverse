@@ -48,7 +48,7 @@ async (e) => {
         const response =
         await fetch(
 
-            "http://localhost:5000/designer/karya",
+            "/api/designer/karya",
 
             {
                 method: "POST",

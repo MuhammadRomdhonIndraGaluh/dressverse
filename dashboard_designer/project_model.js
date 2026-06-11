@@ -7,7 +7,7 @@ const id_desainer =
 user.id_user;
 
 fetch(
-`http://localhost:5000/designer/dashboard/${id_desainer}`
+`/api/designer/dashboard/${id_desainer}`
 )
 
 .then(res => res.json())
@@ -36,7 +36,7 @@ fetch(
 
         <img
         class="model-photo"
-        src="../uploads/${item.foto}"
+        src=`${item.foto}`
         >
 
         <div class="info">
@@ -178,7 +178,7 @@ function approve(id){
 
     fetch(
 
-    `http://localhost:5000/project-model/approve/${id}`,
+    `/api/project-model/approve/${id}`,
 
     {
         method:"PUT"
@@ -202,7 +202,7 @@ function reject(id){
 
     fetch(
 
-    `http://localhost:5000/project-model/reject/${id}`,
+    `/api/project-model/reject/${id}`,
 
     {
         method:"PUT"
@@ -225,7 +225,7 @@ function reject(id){
 function lihatFoto(foto){
 
     window.open(
-        `http://localhost:5000/uploads/${foto}`,
+        `${foto}`,
         "_blank"
     );
 
@@ -233,7 +233,7 @@ function lihatFoto(foto){
 
 window.approve = function(id) {
     fetch(
-        `http://localhost:5000/project-model/approve/${id}`,
+        `/api/project-model/approve/${id}`,
         {
             method: "PUT"
         }
@@ -247,7 +247,7 @@ window.approve = function(id) {
 
 window.reject = function(id) {
     fetch(
-        `http://localhost:5000/project-model/reject/${id}`,
+        `/api/project-model/reject/${id}`,
         {
             method: "PUT"
         }

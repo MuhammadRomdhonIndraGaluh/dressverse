@@ -212,7 +212,7 @@ async function loadDesigners(){
     try{
 
         const response =
-        await fetch("http://localhost:5000/designers");
+        await fetch("/api/designers");
 
         const data =
         await response.json();

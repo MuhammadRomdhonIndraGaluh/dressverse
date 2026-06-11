@@ -27,7 +27,7 @@ let fotoLama = "";
 // ======================
 
 fetch(
-`http://localhost:5000/designer/karya/${id_karya}`
+`/api/designer/karya/${id_karya}`
 )
 
 .then(res => res.json())
@@ -57,7 +57,7 @@ fetch(
     document.getElementById(
         "previewFoto"
     ).src =
-    `http://localhost:5000/uploads/${data.foto_karya}`;
+    `${data.foto_karya}`;
 
 });
 
@@ -131,7 +131,7 @@ try{
     const response =
     await fetch(
 
-    `http://localhost:5000/designer/karya/${id_karya}`,
+    `/api/designer/karya/${id_karya}`,
 
     {
         method:"PUT",

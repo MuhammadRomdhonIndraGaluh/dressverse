@@ -75,7 +75,7 @@ if(nama){
     document.getElementById("navbar-user").innerText = nama;
 }
 
-fetch("http://localhost:5000/event")
+fetch("/api/event")
 
 .then(res => res.json())
 
@@ -137,7 +137,7 @@ fetch("http://localhost:5000/event")
         <div class="event-img">
 
             <img
-            src="http://localhost:5000/uploads/${topEvent.gambar}"
+            src=`${topEvent.gambar}`
             alt="${topEvent.nama_event}"
             >
 
@@ -223,7 +223,7 @@ fetch("http://localhost:5000/event")
                 <div class="ticket-image">
 
                     <img
-                    src="http://localhost:5000/uploads/${event.gambar}"
+                    src=`${event.gambar}`
                     alt="${event.nama_event}"
                     >
 

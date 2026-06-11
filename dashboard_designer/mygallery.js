@@ -148,7 +148,7 @@ function getFotoUrl(foto){
         return `/api/${foto}`;
     }
 
-    return `${foto}`;
+    return `../foto/${foto}`;
 }
 
 function tampilkanTopProfile(data){

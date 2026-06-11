@@ -49,35 +49,35 @@ data.followers;
 // GALLERY
 // =====================
 
+function getFotoUrl(foto){
+    if(!foto) return "";
+    if(foto.startsWith("http") || foto.startsWith("../")) return foto;
+    if(foto.startsWith("/")) return `/api${foto}`;
+    if(foto.includes("uploads/")) return `/api/${foto}`;
+    return `../foto/${foto}`;
+}
+
 fetch(
 `/api/designer/karya/${id_desainer}`
 )
-
 .then(res => res.json())
-
 .then(data => {
 
-    const gallery =
-    document.getElementById(
-        "galleryContainer"
-    );
+    const gallery = document.getElementById("galleryContainer");
+    
+    if(!gallery) return;
 
     data.forEach(karya => {
-
         gallery.innerHTML += `
-
-        <div class="work">
-
-            <h3>${karya.judul}</h3>
-
-            <p>${karya.kategori}</p>
-
+        <div class="quick-card" style="display:flex; flex-direction:column; gap:8px; align-items:flex-start;">
+            <img src="${getFotoUrl(karya.foto_karya)}" style="width:100%; height:120px; object-fit:cover; border-radius:8px;">
+            <div style="padding:0 5px;">
+                <h4 style="font-size:14px; margin-bottom:4px;">${karya.judul}</h4>
+                <p style="font-size:11px; color:#68636a;">${karya.kategori}</p>
+            </div>
         </div>
-
         `;
-
     });
-
 });
 
 function getDesignerName(){

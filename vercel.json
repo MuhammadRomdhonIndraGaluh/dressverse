@@ -14,7 +14,11 @@
       "use": "@vercel/static"
     },
     {
-      "src": "**/*.js",
+      "src": "dashboard_designer/**/*.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "dashboard_eo/**/*.js",
       "use": "@vercel/static"
     },
     {

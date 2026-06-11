@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DressVerse Dashboard</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo">
+
+                <h1>DressVerse</h1>
+
+                <p>
+                    <i class="fa-solid fa-heart"></i>
+                    DESIGNER PORTAL
+                </p>
+
+            </div>
+
+            <ul class="menu">
+
+                <li class="active">
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="mygallery.html">
+                        <i class="fa-regular fa-image"></i>
+                        My Gallery
+                    </a>
+                </li>
+
+                <li>
+                    <a href="upload_karya.html">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        Upload Karya
+                    </a>
+                </li>
+
+                <li>
+                    <a href="project_model.html">
+                        <i class="fa-solid fa-users"></i>
+                        Project Model
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="logout">
+
+            <button type="button" onclick="logout()">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Keluar
+            </button>
+
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <div class="title">
+
+                <i class="fa-solid fa-bars"></i>
+
+                <h2>Dashboard</h2>
+
+            </div>
+
+        </div>
+
+        <section class="welcome-card">
+
+            <div class="welcome-left">
+
+                <p class="welcome-small">Welcome back,</p>
+
+                <h1 id="welcomeText">NaellTzy</h1>
+
+                <p class="welcome-desc">
+                    Kelola karya dan pantau project dengan mudah.
+                </p>
+
+            </div>
+
+            <div class="welcome-right">
+                <i class="fa-solid fa-shirt"></i>
+            </div>
+
+        </section>
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <div class="icon-box">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+
+                <div class="stat-info">
+                    <h4>Total Karya</h4>
+                    <p id="totalKarya">0</p>
+                    <span>Karya</span>
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="icon-box">
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+
+                <div class="stat-info">
+                    <h4>Total Likes</h4>
+                    <p id="totalLikes">0</p>
+                    <span>Likes</span>
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="icon-box">
+                    <i class="fa-regular fa-comment-dots"></i>
+                </div>
+
+                <div class="stat-info">
+                    <h4>Total Komentar</h4>
+                    <p id="totalKomentar">0</p>
+                    <span>Komentar</span>
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="icon-box">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <div class="stat-info">
+                    <h4>Followers</h4>
+                    <p id="followers">0</p>
+                    <span>Followers</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="quick-menu">
+
+            <h3>Quick Menu</h3>
+
+            <div class="quick-grid">
+
+                <a href="mygallery.html" class="quick-card">
+
+                    <i class="fa-regular fa-image"></i>
+
+                    <div>
+                        <h4>My Gallery</h4>
+                        <p>Lihat semua karya Anda</p>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                </a>
+
+                <a href="upload_karya.html" class="quick-card">
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    <div>
+                        <h4>Upload Karya</h4>
+                        <p>Tambah karya baru</p>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                </a>
+
+                <a href="project_model.html" class="quick-card">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <div>
+                        <h4>Project Model</h4>
+                        <p>Lihat lamaran model</p>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                </a>
+
+                <a href="#" class="quick-card">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    <div>
+                        <h4>Edit Profile</h4>
+                        <p>Ubah informasi profil</p>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+<script>
+
+function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+    "../login/login.html";
+
+}
+
+</script>
+
+</body>
+</html>

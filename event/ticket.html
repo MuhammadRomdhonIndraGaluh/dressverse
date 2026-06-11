@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ticket Event</title>
+
+    <link rel="stylesheet" href="ticket.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">DressVerse</div>
+
+        <ul class="menu">
+            <li><a href="../home/home.html">Home</a></li>
+            <li><a href="../creatives/creatives.html">Our Creatives</a></li>
+            <li><a href="../gallery/gallery.html">Gallery</a></li>
+            <li><a href="event.html" class="active">Event</a></li>
+            <li><a href="../models/models.html">Join Our Models</a></li>
+        </ul>
+
+        <a href="../login/login.html"
+class="login-btn"
+id="navbar-user">
+
+LOGIN
+
+</a>
+
+    </nav>
+
+    <!-- TICKET -->
+
+    <section class="ticket-section">
+
+        <div class="blur blur1"></div>
+        <div class="blur blur2"></div>
+
+        <!-- BACK -->
+
+        <button class="back-btn"
+        onclick="window.location.href='event.html'">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </button>
+
+        <!-- CARD -->
+
+        <!-- CARD -->
+
+<div class="ticket-card">
+
+    <div class="ticket-image">
+        <img id="gambarEvent" src="">
+    </div>
+
+    <div class="ticket-content">
+
+        <p class="category">
+            Fashion Show
+        </p>
+
+        <h1 id="namaEvent"></h1>
+
+        <div class="details">
+
+            <p id="tanggalEvent"></p>
+
+            <p id="waktuEvent"></p>
+
+            <p id="lokasiEvent"></p>
+
+        </div>
+
+        <p
+        class="desc"
+        id="deskripsiEvent"
+        >
+        </p>
+
+        <div class="price">
+            Rp 350.000
+        </div>
+
+        <button class="buy-btn">
+            Buy Ticket
+        </button>
+
+    </div>
+
+</div>
+
+<div class="details">
+
+    <p id="tanggalEvent"></p>
+
+    <p id="waktuEvent"></p>
+
+    <p id="lokasiEvent"></p>
+
+</div>
+
+<p
+class="desc"
+id="deskripsiEvent"
+>
+</p>
+
+<img
+id="gambarEvent"
+src=""
+>
+
+    </section>
+
+</div>
+<script>
+
+const nama = localStorage.getItem("nama");
+
+if (nama) {
+
+    document.getElementById("navbar-user")
+    .innerText = nama;
+
+}
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const id =
+params.get("id");
+
+fetch(
+`http://localhost:5000/event/${id}`
+)
+
+.then(res => res.json())
+
+.then(event => {
+
+    document.getElementById(
+    "namaEvent"
+    ).innerText =
+    event.nama_event;
+
+    document.getElementById(
+    "tanggalEvent"
+    ).innerText =
+    "📅 " + event.tanggal;
+
+    document.getElementById(
+    "waktuEvent"
+    ).innerText =
+    `⏰ ${event.waktu_mulai} - ${event.waktu_selesai}`;
+
+    document.getElementById(
+    "lokasiEvent"
+    ).innerText =
+    "📍 " + event.lokasi;
+
+    document.getElementById(
+    "deskripsiEvent"
+    ).innerText =
+    event.deskripsi;
+
+    document.getElementById(
+    "gambarEvent"
+    ).src =
+    `http://localhost:5000/uploads/${event.gambar}`;
+
+});
+
+</script>
+</body>
+</html>

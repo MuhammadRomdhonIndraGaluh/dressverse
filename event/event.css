@@ -1,0 +1,477 @@
+/* event/event.css */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#1d1d1d;
+    padding:20px;
+    font-family:'Poppins', sans-serif;
+}
+
+.container{
+    background:#f8f1ed;
+    min-height:100vh;
+    overflow:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:70px;
+    background:linear-gradient(to right,#cf5d86,#f39ab5);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 30px;
+}
+
+.logo{
+    font-family:'Great Vibes', cursive;
+    color:white;
+    font-size:40px;
+}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:40px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#ffe4ec;
+    font-size:18px;
+    font-weight:500;
+}
+
+.menu .active{
+    border-bottom:3px solid white;
+}
+
+.login-btn{
+    background:white;
+    color:#cf5d86;
+    padding:8px 20px;
+    border-radius:10px;
+    text-decoration:none;
+}
+
+/* HERO */
+
+.hero{
+    height:550px;
+    background:linear-gradient(to bottom right,#f6d9df,#f3b5c6);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero h1{
+    font-family:'Great Vibes', cursive;
+    color:white;
+    font-size:90px;
+    margin-bottom:25px;
+}
+
+/* HERO CARD */
+
+.event-card{
+    width:850px;
+    background:#fffaf8;
+    display:flex;
+    justify-content:space-between;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.12);
+}
+
+.event-info{
+    width:55%;
+}
+
+.category{
+    color:#f08aa8;
+    font-size:14px;
+}
+
+.event-info h2{
+    color:#a2184f;
+    margin:10px 0;
+    font-size:34px;
+}
+
+.details{
+    display:flex;
+    gap:20px;
+    margin:20px 0;
+    color:#666;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+}
+
+/* FIX */
+
+.btn-primary{
+    background:#cf5d86;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:6px;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.btn-secondary{
+    background:#ffd7e3;
+    color:#a2184f;
+    border:none;
+    padding:12px 22px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* IMAGE */
+
+.event-img img{
+    width:260px;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* SEARCH */
+
+.search-box{
+    margin-top:30px;
+}
+
+.search-box input{
+    width:450px;
+    padding:14px 18px;
+    border:none;
+    border-radius:8px;
+    outline:none;
+    background:white;
+}
+
+/* UPCOMING */
+
+.upcoming{
+    position:relative;
+    padding:80px 0;
+    background:#f8f1ed;
+}
+
+.upcoming h2{
+    text-align:center;
+    font-family:'Great Vibes', cursive;
+    font-size:75px;
+    color:#a2184f;
+    margin-bottom:50px;
+}
+
+/* BLUR */
+
+.blur{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:0.6;
+}
+
+.blur-left{
+    width:220px;
+    height:220px;
+    background:#f59ab5;
+    left:-120px;
+    bottom:100px;
+}
+
+.blur-right{
+    width:250px;
+    height:250px;
+    background:#f8bfd0;
+    right:-120px;
+    top:150px;
+}
+
+/* TICKET CARD */
+
+.ticket-card{
+    width:950px;
+    margin:0 auto 30px;
+    background:#fffaf8;
+    position:relative;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.12);
+    overflow:hidden;
+}
+
+.ticket-hole{
+    width:28px;
+    height:28px;
+    background:#f8f1ed;
+    border-radius:50%;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:2;
+}
+
+.ticket-hole.left{
+    left:-14px;
+}
+
+.ticket-hole.right{
+    right:-14px;
+}
+
+.ticket-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+}
+
+.ticket-info{
+    width:58%;
+}
+
+.ticket-category{
+    color:#f08aa8;
+    font-size:13px;
+    margin-bottom:6px;
+}
+
+.ticket-info h3{
+    color:#a2184f;
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.ticket-detail{
+    display:flex;
+    gap:25px;
+    color:#777;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.ticket-buttons{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+/* FIX */
+
+.ticket-btn1{
+    background:#cf5d86;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:12px;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.ticket-btn2{
+    background:#ffd7e3;
+    color:#a2184f;
+    border:none;
+    padding:10px 18px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:12px;
+}
+
+.ticket-buttons a{
+    color:#b6b6b6;
+    text-decoration:none;
+    font-size:12px;
+}
+
+.ticket-image img{
+    width:280px;
+    height:170px;
+    object-fit:cover;
+}
+
+/* =========================================================
+   DressVerse Figma alignment - common layout/nav override
+   Ditambahkan tanpa mengubah struktur HTML
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root{
+    --figma-dark:#1e1e1e;
+    --figma-cream:#F5EFEB;
+    --figma-soft:#fff7f4;
+    --figma-pink:#f06c96;
+    --figma-rose:#b52b59;
+    --figma-plum:#8d103e;
+    --figma-text:#4b2933;
+    --figma-muted:#8a6770;
+    --figma-shadow:0 10px 24px rgba(141,16,62,.16);
+}
+
+html{scroll-behavior:smooth;}
+body{
+    margin:0 !important;
+    padding:0 !important;
+    background:var(--figma-dark) !important;
+    color:var(--figma-text) !important;
+    font-family:'Poppins',sans-serif !important;
+}
+.container{
+    width:min(1280px,100%) !important;
+    min-height:100vh !important;
+    margin:0 auto !important;
+    background:var(--figma-cream) !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    overflow-x:hidden !important;
+}
+.navbar{
+    height:64px !important;
+    min-height:64px !important;
+    padding:0 34px !important;
+    background:linear-gradient(to right,#b52b59,#f06c96) !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:24px !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+}
+.logo{
+    margin:0 !important;
+    font-family:'Great Vibes',cursive !important;
+    color:#fff !important;
+    font-size:38px !important;
+    font-weight:400 !important;
+    line-height:1 !important;
+    letter-spacing:.2px !important;
+    white-space:nowrap !important;
+    text-shadow:none !important;
+}
+.menu{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:28px !important;
+    list-style:none !important;
+    flex-wrap:nowrap !important;
+}
+.menu a{
+    position:relative !important;
+    padding:6px 0 !important;
+    color:#ffe4ec !important;
+    font-family:'Playfair Display',serif !important;
+    font-size:15px !important;
+    font-weight:500 !important;
+    text-decoration:none !important;
+    line-height:1.2 !important;
+    letter-spacing:.1px !important;
+    border-bottom:0 !important;
+}
+.menu a::after{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    bottom:-4px !important;
+    width:0 !important;
+    height:2px !important;
+    margin:auto !important;
+    border-radius:99px !important;
+    background:#fff !important;
+    transition:.25s ease !important;
+}
+.menu a:hover,
+.menu a.active,
+.menu .active{
+    color:#fff !important;
+    font-weight:500 !important;
+}
+.menu a:hover::after,
+.menu a.active::after,
+.menu .active::after{
+    width:100% !important;
+}
+.login-btn{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-width:106px !important;
+    min-height:35px !important;
+    padding:8px 22px !important;
+    border-radius:6px !important;
+    background:#fff !important;
+    color:var(--figma-plum) !important;
+    font-family:'Playfair Display',serif !important;
+    font-size:13px !important;
+    font-weight:500 !important;
+    text-decoration:none !important;
+    box-shadow:none !important;
+    white-space:nowrap !important;
+}
+.login-btn:hover{transform:translateY(-1px) !important;}
+button,input,a{transition:.25s ease;}
+img{display:block;}
+@media(max-width:900px){
+    .container{width:100% !important;}
+    .navbar{height:auto !important;padding:16px !important;flex-direction:column !important;gap:12px !important;}
+    .menu{gap:14px 18px !important;flex-wrap:wrap !important;}
+    .menu a{font-size:13px !important;}
+    .logo{font-size:36px !important;}
+}
+
+/* ===== FIX EVENT DINAMIS ===== */
+
+.ticket-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.ticket-info{
+    flex:1;
+}
+
+.ticket-image{
+    width:300px;
+    height:180px;
+    flex-shrink:0;
+}
+
+.ticket-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.ticket-buttons{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.ticket-card{
+    width:950px;
+    min-height:220px;
+}

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Buat Event Baru - DressVerse</title>
+
+    <link rel="stylesheet" href="buat_event.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<div class="page">
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="brand">
+                <i class="fa-solid fa-crown"></i>
+                <h1>DressVerse</h1>
+                <p>EO PORTAL</p>
+            </div>
+
+            <nav class="menu">
+
+                <a href="dashboardeo.html" class="menu-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="events.html" class="menu-item active">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>My Events</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+        <button type="button" class="logout" onclick="logout()">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Keluar</span>
+        </button>
+
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div class="page-title">
+                <i class="fa-solid fa-bars"></i>
+                <h2>My Events</h2>
+            </div>
+
+        </header>
+
+        <div class="content">
+
+            <a href="events.html" class="back-button">
+                <i class="fa-solid fa-arrow-left"></i>
+                Kembali
+            </a>
+
+            <section class="title-section">
+
+                <h1>Buat Event Baru</h1>
+
+                <div class="title-line"></div>
+
+                <p>
+                    Buat dan kelola event fashion kamu dengan mudah.
+                </p>
+
+            </section>
+
+            <form class="event-form">
+
+                <div class="form-layout">
+
+                    <div class="form-fields">
+
+                        <div class="form-group">
+
+                            <label for="eventName">
+                                Nama Event <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="eventName"
+                                name="eventName"
+                                placeholder="Masukkan nama event"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="category">
+                                Kategori <span>*</span>
+                            </label>
+
+                            <select
+                                id="category"
+                                name="category"
+                                required
+                            >
+                                <option value="">
+                                    Pilih kategori
+                                </option>
+
+                                <option value="fashion-show">
+                                    Fashion Show
+                                </option>
+
+                                <option value="model-casting">
+                                    Model Casting
+                                </option>
+
+                                <option value="fashion-week">
+                                    Fashion Week
+                                </option>
+
+                                <option value="workshop">
+                                    Workshop
+                                </option>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="description">
+                                Deskripsi <span>*</span>
+                            </label>
+
+                            <textarea
+                                id="description"
+                                name="description"
+                                rows="5"
+                                maxlength="500"
+                                placeholder="Tulis deskripsi event di sini..."
+                                required
+                            ></textarea>
+
+                            <small>
+                                <span id="charCount">0</span>/500
+                            </small>
+
+                        </div>
+
+                        <div class="field-grid">
+
+                            <div class="form-group">
+
+                                <label for="eventDate">
+                                    Tanggal <span>*</span>
+                                </label>
+
+                                <div class="input-icon">
+
+                                    <i class="fa-regular fa-calendar-days"></i>
+
+                                    <input
+                                        type="date"
+                                        id="eventDate"
+                                        name="eventDate"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="startTime">
+                                    Waktu Mulai <span>*</span>
+                                </label>
+
+                                <div class="input-icon">
+
+                                    <i class="fa-regular fa-clock"></i>
+
+                                    <input
+                                        type="time"
+                                        id="startTime"
+                                        name="startTime"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="endTime">
+                                    Waktu Selesai <span>*</span>
+                                </label>
+
+                                <div class="input-icon">
+
+                                    <i class="fa-regular fa-clock"></i>
+
+                                    <input
+                                        type="time"
+                                        id="endTime"
+                                        name="endTime"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="location">
+                                    Lokasi <span>*</span>
+                                </label>
+
+                                <div class="input-icon">
+
+                                    <i class="fa-solid fa-location-dot"></i>
+
+                                    <input
+                                        type="text"
+                                        id="location"
+                                        name="location"
+                                        placeholder="Masukkan lokasi event"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="banner-section">
+
+                        <label for="bannerInput">
+                            Banner Event <span>*</span>
+                        </label>
+
+                        <label
+                            for="bannerInput"
+                            class="upload-box"
+                        >
+
+                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+
+                            <strong>Upload banner event</strong>
+
+                            <span>
+                                JPG, PNG (Max. 2MB)
+                            </span>
+
+                        </label>
+
+                        <div class="banner-preview">
+
+                            <img
+                                src=""
+                                alt="Preview Banner Event"
+                                id="bannerPreview"
+                            >
+
+                        </div>
+
+                        <p class="banner-note">
+                            Rekomendasi ukuran: 1200 x 600 px
+                        </p>
+
+                        <select
+                            id="status"
+                            name="status"
+                            class="status-select"
+                            required
+                        >
+                            <option value="aktif">
+                                Aktif
+                            </option>
+
+                            <option value="draft">
+                                Draft
+                            </option>
+                        </select>
+
+                        <input
+                            type="file"
+                            id="bannerInput"
+                            name="banner"
+                            accept=".jpg,.jpeg,.png"
+                            hidden
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+                        <i class="fa-regular fa-floppy-disk"></i>
+                        Simpan Event
+                    </button>
+
+                    <a
+                        href="events.html"
+                        class="cancel-button"
+                    >
+                        <i class="fa-solid fa-xmark"></i>
+                        Batal
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+    const bannerInput =
+        document.getElementById("bannerInput");
+
+    const bannerPreview =
+        document.getElementById("bannerPreview");
+
+    const description =
+        document.getElementById("description");
+
+    const charCount =
+        document.getElementById("charCount");
+
+    bannerInput.addEventListener("change", function(){
+        const file = this.files[0];
+
+        if(!file){
+            return;
+        }
+
+        bannerPreview.src =
+        URL.createObjectURL(file);
+    });
+
+    description.addEventListener("input", function(){
+        charCount.textContent =
+        this.value.length;
+    });
+
+    function logout(){
+        localStorage.clear();
+        window.location.href = "../login/login.html";
+    }
+
+    document
+.querySelector(".event-form")
+.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append(
+        "nama_event",
+        document.getElementById("eventName").value
+    );
+
+    formData.append(
+        "kategori",
+        document.getElementById("category").value
+    );
+
+    formData.append(
+        "deskripsi",
+        document.getElementById("description").value
+    );
+
+    formData.append(
+        "tanggal",
+        document.getElementById("eventDate").value
+    );
+
+    formData.append(
+        "waktu_mulai",
+        document.getElementById("startTime").value
+    );
+
+    formData.append(
+        "waktu_selesai",
+        document.getElementById("endTime").value
+    );
+
+    formData.append(
+        "lokasi",
+        document.getElementById("location").value
+    );
+
+    formData.append(
+        "status",
+        document.getElementById("status").value
+    );
+
+    formData.append(
+        "gambar",
+        document.getElementById("bannerInput").files[0]
+    );
+
+    const response = await fetch(
+        "http://localhost:5000/event",
+        {
+            method:"POST",
+            body:formData
+        }
+    );
+
+    const result =
+    await response.json();
+
+    alert(result.message);
+
+    if(response.ok){
+
+        window.location.href =
+        "events.html";
+
+    }
+
+});
+</script>
+
+</body>
+</html>

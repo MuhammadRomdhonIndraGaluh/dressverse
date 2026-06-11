@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Project Model | DressVerse</title>
+
+<link rel="stylesheet" href="project_model.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo">
+
+                <h1>DressVerse</h1>
+
+                <p>
+                    <i class="fa-solid fa-heart"></i>
+                    DESIGNER PORTAL
+                </p>
+
+            </div>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="mygallery.html">
+                        <i class="fa-regular fa-image"></i>
+                        My Gallery
+                    </a>
+                </li>
+
+                <li>
+                    <a href="upload_karya.html">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        Upload Karya
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="project_model.html">
+                        <i class="fa-solid fa-users"></i>
+                        Project Model
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="logout">
+
+            <button onclick="logout()">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Keluar
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <div class="page-title">
+
+                <i class="fa-solid fa-bars"></i>
+
+                <h2>Project Model</h2>
+
+            </div>
+
+            <div class="top-right">
+
+                <div class="notification">
+
+                </div>
+
+                <div class="profile">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-left">
+
+                <h1>
+                    Project Model
+                    <span class="sparkle">✦</span>
+                </h1>
+
+                <p>
+                    Kelola project dan pendaftaran model untuk setiap karya Anda.
+                </p>
+
+            </div>
+
+            <div class="hero-icon">
+
+                <i class="fa-solid fa-shirt"></i>
+
+            </div>
+
+        </section>
+
+        <!-- CONTENT -->
+
+        <section class="content-wrapper">
+
+            <!-- TABLE -->
+
+            <div class="project-section">
+
+                <div class="table-header">
+
+                    <div>Model</div>
+                    <div>Project</div>
+                    <div>Tanggal Melamar</div>
+                    <div>Status</div>
+                    <div>Aksi</div>
+
+                </div>
+
+                <div id="projectContainer"></div>
+
+                <div class="pagination">
+
+                    <button>
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <button class="active-page">1</button>
+
+                    <button>2</button>
+
+                    <button>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- TIPS -->
+
+            <aside class="tips-panel">
+
+                <h3>
+                    <span>
+                        <i class="fa-regular fa-lightbulb"></i>
+                    </span>
+                    Tips Kelola Project
+                </h3>
+
+                <div class="tip">
+
+                    <div class="tip-icon">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+
+                    <div>
+
+                        <h4>Tinjau Lamaran dengan Teliti</h4>
+
+                        <p>
+                            Perhatikan portofolio, pengalaman, dan kesesuaian model dengan konsep karya Anda.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="tip">
+
+                    <div class="tip-icon">
+                        <i class="fa-regular fa-message"></i>
+                    </div>
+
+                    <div>
+
+                        <h4>Komunikasi yang Baik</h4>
+
+                        <p>
+                            Setelah menyetujui model, pastikan komunikasi berjalan jelas mengenai jadwal dan konsep.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="tip">
+
+                    <div class="tip-icon">
+                        <i class="fa-solid fa-rotate"></i>
+                    </div>
+
+                    <div>
+
+                        <h4>Update Status Project</h4>
+
+                        <p>
+                            Selalu update status lamaran agar model mendapatkan informasi terbaru.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="tip">
+
+                    <div class="tip-icon">
+                        <i class="fa-solid fa-user-group"></i>
+                    </div>
+
+                    <div>
+
+                        <h4>Bangun Kolaborasi</h4>
+
+                        <p>
+                            Kolaborasi yang baik akan menghasilkan karya yang luar biasa dan berkesan.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="project_model.js"></script>
+
+<script>
+
+function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+    "../login/login.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

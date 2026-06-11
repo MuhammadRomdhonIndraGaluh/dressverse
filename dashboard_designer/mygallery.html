@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Gallery | DressVerse</title>
+
+<link rel="stylesheet" href="mygallery.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo">
+
+                <h1>DressVerse</h1>
+
+                <p>
+                    <i class="fa-solid fa-heart"></i>
+                    DESIGNER PORTAL
+                </p>
+
+            </div>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="mygallery.html">
+                        <i class="fa-regular fa-image"></i>
+                        My Gallery
+                    </a>
+                </li>
+
+                <li>
+                    <a href="upload_karya.html">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        Upload Karya
+                    </a>
+                </li>
+
+                <li>
+                    <a href="project_model.html">
+                        <i class="fa-solid fa-users"></i>
+                        Project Model
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="logout">
+
+            <button onclick="logout()">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Keluar
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <div class="page-title">
+
+                <i class="fa-solid fa-bars"></i>
+
+                <h2>My Gallery</h2>
+
+            </div>
+
+        </div>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-left">
+
+                <p class="small">
+                    Fashion Portfolio
+                </p>
+
+                <h1>
+                    My Gallery
+                    <span class="sparkle">✦</span>
+                </h1>
+
+                <p class="desc">
+                    Showcase your fashion creations and manage your portfolio easily.
+                </p>
+
+            </div>
+
+            <div class="hero-icon">
+
+                <i class="fa-solid fa-shirt"></i>
+
+            </div>
+
+        </section>
+
+        <!-- TOOLBAR -->
+
+        <section class="toolbar">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                type="text"
+                id="searchInput"
+                placeholder="Search your creation...">
+
+            </div>
+
+            <a href="upload_karya.html">
+
+                <button class="upload-btn">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Upload Karya
+
+                </button>
+
+            </a>
+
+        </section>
+
+        <!-- GALLERY -->
+
+        <section class="gallery-wrapper">
+
+            <div class="gallery-header">
+
+                <h3>All Creations</h3>
+
+            </div>
+
+            <div id="galleryContainer"></div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="mygallery.js"></script>
+
+<script>
+
+function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+    "../login/login.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

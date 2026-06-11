@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard EO - DressVerse</title>
+
+    <link rel="stylesheet" href="dashboardeo.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<div class="page">
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="brand">
+                <i class="fa-solid fa-crown"></i>
+                <h1>DressVerse</h1>
+                <p>EO PORTAL</p>
+            </div>
+
+            <nav class="menu">
+
+                <a href="dashboardeo.html" class="menu-item active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="events.html" class="menu-item">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>My Events</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+        <button
+            type="button"
+            class="logout"
+            onclick="logout()"
+        >
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Keluar</span>
+        </button>
+
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div class="page-title">
+                <i class="fa-solid fa-bars"></i>
+                <h2>Dashboard</h2>
+            </div>
+
+            <div class="profile">
+
+                <div class="notification">
+                    <i class="fa-regular fa-bell"></i>
+                    <span>3</span>
+                </div>
+
+                <div class="avatar" id="avatar">
+                    E
+                </div>
+
+                <strong id="profileName">
+                    Event Organizer
+                </strong>
+
+                <i class="fa-solid fa-chevron-down arrow"></i>
+
+            </div>
+
+        </header>
+
+        <div class="content">
+
+            <section class="welcome">
+
+                <div class="welcome-text">
+
+                    <h1>
+                        Selamat datang kembali,
+                        <span id="welcomeName">
+                            Event Organizer
+                        </span>!
+                    </h1>
+
+                    <p>
+                        Kelola event dan pendaftaran dengan mudah.
+                    </p>
+
+                </div>
+
+                <div class="stage-art">
+
+                    <span class="spark spark-one">+</span>
+                    <span class="spark spark-two">+</span>
+
+                    <div class="truss">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="light light-one"></div>
+                    <div class="light light-two"></div>
+                    <div class="light light-three"></div>
+
+                    <div class="speaker speaker-left"></div>
+                    <div class="speaker speaker-right"></div>
+
+                    <div class="stage-floor"></div>
+
+                </div>
+
+            </section>
+
+            <section class="statistics">
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fa-regular fa-calendar-days"></i>
+                    </div>
+
+                    <div>
+                        <p>Total Event</p>
+                        <strong id="totalEvent">0</strong>
+                        <span>Event dibuat</span>
+                    </div>
+
+                </article>
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-user-group"></i>
+                    </div>
+
+                    <div>
+                        <p>Total Peserta</p>
+                        <strong id="totalPeserta">-</strong>
+                        <span>Semua peserta</span>
+                    </div>
+
+                </article>
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+
+                    <div>
+                        <p>Event Aktif</p>
+                        <strong id="eventAktif">0</strong>
+                        <span>Sedang berlangsung</span>
+                    </div>
+
+                </article>
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fa-regular fa-clipboard"></i>
+                    </div>
+
+                    <div>
+                        <p>Total Pendaftar</p>
+                        <strong id="totalPendaftar">-</strong>
+                        <span>Menunggu keputusan</span>
+                    </div>
+
+                </article>
+
+            </section>
+
+            <section class="bottom-grid">
+
+                <article class="panel">
+
+                    <h2>Quick Menu</h2>
+
+                    <div class="quick-menu">
+
+                        <a
+                            href="buat_event.html"
+                            class="quick-item"
+                        >
+                            <div class="quick-icon">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+
+                            <strong>Buat Event Baru</strong>
+                            <p>Buat event fashion baru</p>
+                        </a>
+
+                        <a
+                            href="events.html"
+                            class="quick-item"
+                        >
+                            <div class="quick-icon">
+                                <i class="fa-solid fa-calendar"></i>
+                            </div>
+
+                            <strong>Lihat Event</strong>
+                            <p>Kelola semua event</p>
+                        </a>
+
+                    </div>
+
+                </article>
+
+                <article class="panel">
+
+                    <div class="panel-header">
+
+                        <h2>Event Mendatang</h2>
+
+                        <a href="events.html">
+                            Lihat Semua
+                        </a>
+
+                    </div>
+
+                    <div
+                        class="event-list"
+                        id="eventContainer"
+                    >
+                        <div class="empty-event">
+                            Belum ada event mendatang.
+                        </div>
+                    </div>
+
+                </article>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="dashboardeo.js">
+
+    fetch("http://localhost:5000/event")
+.then(res => res.json())
+.then(events => {
+
+    document.getElementById(
+        "totalEvent"
+    ).innerText = events.length;
+
+})
+.catch(err => {
+
+    console.log(err);
+
+});
+</script>
+
+</body>
+</html>

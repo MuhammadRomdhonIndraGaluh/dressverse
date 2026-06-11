@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Event - DressVerse</title>
+
+    <link rel="stylesheet" href="edit_event.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<div class="page">
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="brand">
+                <i class="fa-solid fa-crown"></i>
+                <h1>DressVerse</h1>
+                <p>EO PORTAL</p>
+            </div>
+
+            <nav class="menu">
+
+                <a href="dashboardeo.html" class="menu-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="events.html" class="menu-item active">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>My Events</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+        <button type="button" class="logout">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Keluar</span>
+        </button>
+
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div class="page-title">
+                <i class="fa-solid fa-bars"></i>
+                <h2>My Events</h2>
+            </div>
+
+
+        </header>
+
+        <div class="content">
+
+            <a href="events.html" class="back-button">
+                <i class="fa-solid fa-arrow-left"></i>
+                Kembali
+            </a>
+
+            <section class="title-section">
+
+                <h1>Edit Event</h1>
+
+                <div class="title-line"></div>
+
+                <p>Perbarui informasi event Anda.</p>
+
+            </section>
+
+            <form class="edit-form">
+
+                <div class="form-layout">
+
+                    <div class="form-fields">
+
+                        <div class="form-group">
+
+                            <label for="eventName">
+                                Nama Event
+                            </label>
+
+                            <input
+                                type="text"
+                                id="eventName"
+                                name="eventName"
+                                value="The Grand Couture Show"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="category">
+                                Kategori
+                            </label>
+
+                            <div class="input-icon select-wrapper">
+
+                                <select
+                                    id="category"
+                                    name="category"
+                                    required
+                                >
+                                    <option value="fashion-show" selected>
+                                        Fashion Show
+                                    </option>
+
+                                    <option value="model-casting">
+                                        Model Casting
+                                    </option>
+
+                                    <option value="fashion-week">
+                                        Fashion Week
+                                    </option>
+
+                                    <option value="workshop">
+                                        Workshop
+                                    </option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="description">
+                                Deskripsi
+                            </label>
+
+                            <textarea
+                                id="description"
+                                name="description"
+                                rows="5"
+                                required
+                            >Ajang fashion show tahunan yang menampilkan koleksi busana terbaru dari desainer ternama dan talenta muda berbakat. Event ini menghadirkan perpaduan antara kreativitas, gaya, dan inovasi dalam dunia fashion.</textarea>
+
+                        </div>
+
+                        <div class="field-grid">
+
+                            <div class="form-group">
+
+                                <label for="eventDate">
+                                    Tanggal
+                                </label>
+
+                                <div class="input-icon">
+
+                                    <i class="fa-regular fa-calendar-days"></i>
+
+                                    <input
+                                        type="date"
+                                        id="eventDate"
+                                        name="eventDate"
+                                        value="2027-06-27"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="startTime">
+                                    Waktu Mulai
+                                </label>
+
+                                <div class="input-icon">
+
+                                    <i class="fa-regular fa-clock"></i>
+
+                                    <input
+                                        type="time"
+                                        id="startTime"
+                                        name="startTime"
+                                        value="16:00"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="endTime">
+                                    Waktu Selesai
+                                </label>
+
+                                <div class="input-icon">
+
+                                    <i class="fa-regular fa-clock"></i>
+
+                                    <input
+                                        type="time"
+                                        id="endTime"
+                                        name="endTime"
+                                        value="21:00"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="location">
+                                    Lokasi
+                                </label>
+
+                                <div class="input-icon">
+
+                                    <i class="fa-solid fa-location-dot"></i>
+
+                                    <input
+                                        type="text"
+                                        id="location"
+                                        name="location"
+                                        value="Jakarta Convention Center"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="banner-section">
+
+                        <label>Banner Event</label>
+
+                        <div class="banner-preview">
+
+                            <!-- Isi src dengan foto event -->
+                            <img
+                                src=""
+                                alt="Banner The Grand Couture Show"
+                                id="bannerPreview"
+                            >
+
+                        </div>
+
+                        <label
+                            for="bannerInput"
+                            class="upload-box"
+                        >
+
+                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                            <strong>Ganti Banner</strong>
+
+                            <span>
+                                JPG, PNG (Max. 2MB)
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="file"
+                            id="bannerInput"
+                            name="banner"
+                            accept=".jpg,.jpeg,.png"
+                            hidden
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+                        <i class="fa-regular fa-floppy-disk"></i>
+                        Simpan Perubahan
+                    </button>
+
+                    <a
+                        href="events.html"
+                        class="cancel-button"
+                    >
+                        <i class="fa-solid fa-xmark"></i>
+                        Batal
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const id =
+params.get("id");
+
+fetch(
+`http://localhost:5000/event/${id}`
+)
+
+.then(res => res.json())
+
+.then(event => {
+
+    document.getElementById(
+    "eventName"
+    ).value =
+    event.nama_event;
+
+    document.getElementById(
+    "description"
+    ).value =
+    event.deskripsi;
+
+    document.getElementById(
+    "eventDate"
+    ).value =
+    event.tanggal.split("T")[0];
+
+    document.getElementById(
+    "startTime"
+    ).value =
+    event.waktu_mulai;
+
+    document.getElementById(
+    "endTime"
+    ).value =
+    event.waktu_selesai;
+
+    document.getElementById(
+    "location"
+    ).value =
+    event.lokasi;
+
+    document.getElementById(
+    "bannerPreview"
+    ).src =
+    `http://localhost:5000/uploads/${event.gambar}`;
+
+});
+
+const bannerInput =
+document.getElementById(
+"bannerInput"
+);
+
+document.querySelector(
+".edit-form"
+).addEventListener(
+"submit",
+async function(e){
+
+    e.preventDefault();
+
+    const data = {
+
+        nama_event:
+        document.getElementById(
+        "eventName"
+        ).value,
+
+        deskripsi:
+        document.getElementById(
+        "description"
+        ).value,
+
+        tanggal:
+        document.getElementById(
+        "eventDate"
+        ).value,
+
+        waktu_mulai:
+        document.getElementById(
+        "startTime"
+        ).value,
+
+        waktu_selesai:
+        document.getElementById(
+        "endTime"
+        ).value,
+
+        lokasi:
+        document.getElementById(
+        "location"
+        ).value
+
+    };
+
+    const response =
+    await fetch(
+    `http://localhost:5000/event/${id}`,
+    {
+        method:"PUT",
+        headers:{
+            "Content-Type":
+            "application/json"
+        },
+        body:
+        JSON.stringify(data)
+    });
+
+    const result =
+    await response.json();
+
+    alert(result.message);
+
+    window.location.href =
+    "events.html";
+
+});
+
+const bannerPreview =
+document.getElementById(
+"bannerPreview"
+);
+
+bannerInput.addEventListener(
+"change",
+function(){
+
+    const file =
+    this.files[0];
+
+    if(file){
+
+        bannerPreview.src =
+        URL.createObjectURL(file);
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

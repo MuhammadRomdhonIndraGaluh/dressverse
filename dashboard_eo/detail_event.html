@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Detail Event - DressVerse</title>
+
+    <link rel="stylesheet" href="detail_event.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<div class="page">
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="brand">
+                <i class="fa-solid fa-crown"></i>
+                <h1>DressVerse</h1>
+                <p>EO PORTAL</p>
+            </div>
+
+            <nav class="menu">
+
+                <a href="dashboardeo.html" class="menu-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="events.html" class="menu-item active">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>My Events</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+        <button
+            type="button"
+            class="logout"
+            onclick="logout()"
+        >
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Keluar</span>
+        </button>
+
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div class="page-title">
+                <i class="fa-solid fa-bars"></i>
+                <h2>My Events</h2>
+            </div>
+
+
+        </header>
+
+        <div class="content">
+
+            <a href="events.html" class="back-button">
+                <i class="fa-solid fa-arrow-left"></i>
+                Kembali
+            </a>
+
+            <section class="detail-card">
+
+                <div class="detail-left">
+
+                    <div class="event-image" id="gambarEvent">
+
+                        <!-- Isi src dengan lokasi foto event -->
+                        <img
+                            src=""
+                            alt="The Grand Couture Show"
+                        >
+
+                        <span class="image-status" id="gambarEvent">
+                            <i class="fa-solid fa-circle"></i>
+                            Aktif
+                        </span>
+
+                    </div>
+
+                    <div class="action-buttons">
+
+                        <a
+                            href="edit_event.html"
+                            class="edit-button"
+                            id="editEventButton"
+                        >
+                            <i class="fa-regular fa-pen-to-square"></i>
+                            Edit Event
+                        </a>
+
+                        <button
+                            type="button"
+                            class="delete-button"
+                            onclick="deleteEvent()"
+                        >
+                            <i class="fa-regular fa-trash-can" ></i>
+                            Hapus Event
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="event-summary">
+
+                    <span class="category">
+                        Fashion Show
+                    </span>
+
+                    <h1>
+                        The Grand Couture Show
+                    </h1>
+
+                    <p class="summary-description">
+                        Ajang fashion show tahunan yang menampilkan
+                        koleksi busana terbaru dari desainer ternama
+                        dan talenta muda berbakat. Event ini
+                        menghadirkan perpaduan antara kreativitas,
+                        gaya, dan inovasi dalam dunia fashion.
+                    </p>
+
+                    <div class="event-meta">
+
+                        <div class="meta-item">
+
+                            <i class="fa-regular fa-calendar-days"></i>
+
+                            <div>
+                                <strong>27 Juni 2027</strong>
+                                <span>Tanggal</span>
+                            </div>
+
+                        </div>
+
+                        <div class="meta-item">
+
+                            <i class="fa-regular fa-clock"></i>
+
+                            <div>
+                                <strong>16.00 - 21.00</strong>
+                                <span>Waktu</span>
+                            </div>
+
+                        </div>
+
+                        <div class="meta-item">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <div>
+                                <strong>
+                                    Jakarta Convention Center
+                                </strong>
+                                <span>Lokasi</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="information-grid">
+
+                <article class="info-card">
+
+                    <h2>Informasi Event</h2>
+
+                    <div class="info-list">
+
+                        <div class="info-row">
+                            <span>Kategori</span>
+                            <strong>Fashion Show</strong>
+                        </div>
+
+                        <div class="info-row">
+                            <span>Tanggal</span>
+                            <strong>27 Juni 2027</strong>
+                        </div>
+
+                        <div class="info-row">
+                            <span>Waktu</span>
+                            <strong>16.00 - 21.00</strong>
+                        </div>
+
+                        <div class="info-row">
+                            <span>Lokasi</span>
+                            <strong>
+                                Jakarta Convention Center
+                            </strong>
+                        </div>
+
+                        <div class="info-row">
+                            <span>Status</span>
+                            <strong class="status-label">
+                                Aktif
+                            </strong>
+                        </div>
+
+                        <div class="info-row">
+                            <span>Dibuat Pada</span>
+                            <strong>
+                                10 Mei 2027, 14.32
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <article class="info-card description-card">
+
+                    <h2>Deskripsi Lengkap</h2>
+
+                    <p>
+                        The Grand Couture Show adalah ajang fashion
+                        show tahunan yang menampilkan koleksi busana
+                        terbaru dari desainer ternama dan talenta
+                        muda berbakat.
+                    </p>
+
+                    <p>
+                        Event ini menghadirkan perpaduan antara
+                        kreativitas, gaya, dan inovasi dalam dunia
+                        fashion.
+                    </p>
+
+                    <p>
+                        Bergabunglah dan jadilah bagian dari
+                        perayaan fashion terbesar tahun ini!
+                    </p>
+
+                </article>
+
+            
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const eventId =
+params.get("id");
+
+fetch(
+`http://localhost:5000/event/${eventId}`
+)
+
+.then(res => res.json())
+
+.then(event => {
+
+    // tombol edit
+    document.getElementById(
+    "editEventButton"
+    ).href =
+    `edit_event.html?id=${event.id_event}`;
+
+    // gambar
+    document.querySelector(
+    ".event-image img"
+    ).src =
+    `http://localhost:5000/uploads/${event.gambar}`;
+
+    // status
+    document.querySelector(
+    ".image-status"
+    ).innerHTML =
+    `<i class="fa-solid fa-circle"></i>
+    ${event.status}`;
+
+    // kategori
+    document.querySelector(
+    ".category"
+    ).innerText =
+    event.kategori || "Fashion Show";
+
+    // judul
+    document.querySelector(
+    ".event-summary h1"
+    ).innerText =
+    event.nama_event;
+
+    // deskripsi singkat
+    document.querySelector(
+    ".summary-description"
+    ).innerText =
+    event.deskripsi;
+
+    // tanggal
+    document.querySelectorAll(
+    ".meta-item strong"
+    )[0].innerText =
+    event.tanggal;
+
+    // waktu
+    document.querySelectorAll(
+    ".meta-item strong"
+    )[1].innerText =
+    `${event.waktu_mulai} - ${event.waktu_selesai}`;
+
+    // lokasi
+    document.querySelectorAll(
+    ".meta-item strong"
+    )[2].innerText =
+    event.lokasi;
+
+    // Informasi Event
+    const infoRows =
+    document.querySelectorAll(
+    ".info-row strong"
+    );
+
+    infoRows[0].innerText =
+    event.kategori || "Fashion Show";
+
+    infoRows[1].innerText =
+    event.tanggal;
+
+    infoRows[2].innerText =
+    `${event.waktu_mulai} - ${event.waktu_selesai}`;
+
+    infoRows[3].innerText =
+    event.lokasi;
+
+    infoRows[4].innerText =
+    event.status;
+
+    infoRows[5].innerText =
+    event.created_at;
+
+    // Deskripsi lengkap
+    document.querySelector(
+    ".description-card"
+    ).innerHTML = `
+        <h2>Deskripsi Lengkap</h2>
+        <p>${event.deskripsi}</p>
+    `;
+
+})
+
+.catch(err => {
+
+    console.log(err);
+
+    alert(
+    "Gagal mengambil data event"
+    );
+
+});
+
+async function deleteEvent(){
+
+    const yakin = confirm(
+        "Apakah Anda yakin ingin menghapus event ini?"
+    );
+
+    if(!yakin) return;
+
+    try{
+
+        const res = await fetch(
+            `http://localhost:5000/event/${eventId}`,
+            {
+                method: "DELETE"
+            }
+        );
+
+        const data = await res.json();
+
+        alert(data.message);
+
+        window.location.href =
+        "events.html";
+
+    }
+    catch(err){
+
+        console.log(err);
+
+        alert("Gagal menghapus event");
+
+    }
+
+}
+
+function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+    "../login/login.html";
+
+}
+
+</script>
+
+</body>
+</html>

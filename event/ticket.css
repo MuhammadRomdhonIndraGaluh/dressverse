@@ -1,0 +1,319 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#1d1d1d;
+    padding:20px;
+}
+
+.container{
+    min-height:100vh;
+    background:#f8f1ed;
+    overflow:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:70px;
+    background:linear-gradient(to right,#cf5d86,#f39ab5);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 30px;
+}
+
+.logo{
+    font-family:'Great Vibes',cursive;
+    color:white;
+    font-size:40px;
+}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:40px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#ffe4ec;
+    font-size:18px;
+}
+
+.menu .active{
+    border-bottom:3px solid white;
+}
+
+.login-btn{
+    background:white;
+    color:#cf5d86;
+    padding:8px 20px;
+    border-radius:10px;
+    text-decoration:none;
+}
+
+/* SECTION */
+
+.ticket-section{
+    position:relative;
+    min-height:calc(100vh - 70px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px;
+}
+
+/* BACK */
+
+.back-btn{
+    position:absolute;
+    top:40px;
+    left:40px;
+
+    width:55px;
+    height:55px;
+
+    border:none;
+    border-radius:50%;
+
+    background:white;
+    color:#a2184f;
+
+    font-size:22px;
+    cursor:pointer;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* CARD */
+
+.ticket-card{
+    width:1000px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+
+    display:flex;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+
+    z-index:2;
+}
+
+.ticket-image{
+    width:45%;
+}
+
+.ticket-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.ticket-content{
+    width:55%;
+    padding:50px;
+}
+
+.category{
+    color:#f08aa8;
+    margin-bottom:10px;
+}
+
+.ticket-content h1{
+    font-size:50px;
+    color:#a2184f;
+    margin-bottom:25px;
+}
+
+.details{
+    margin-bottom:25px;
+}
+
+.details p{
+    margin-bottom:10px;
+    color:#666;
+}
+
+.desc{
+    color:#777;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.price{
+    font-size:40px;
+    color:#cf5d86;
+    font-weight:600;
+    margin-bottom:30px;
+}
+
+.buy-btn{
+    border:none;
+    background:#cf5d86;
+    color:white;
+    padding:15px 35px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* BLUR */
+
+.blur{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:.6;
+}
+
+.blur1{
+    width:250px;
+    height:250px;
+    background:#f59ab5;
+    left:-100px;
+    top:100px;
+}
+
+.blur2{
+    width:250px;
+    height:250px;
+    background:#f8bfd0;
+    right:-100px;
+    bottom:50px;
+}
+
+/* =========================================================
+   DressVerse Figma alignment - common layout/nav override
+   Ditambahkan tanpa mengubah struktur HTML
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root{
+    --figma-dark:#1e1e1e;
+    --figma-cream:#F5EFEB;
+    --figma-soft:#fff7f4;
+    --figma-pink:#f06c96;
+    --figma-rose:#b52b59;
+    --figma-plum:#8d103e;
+    --figma-text:#4b2933;
+    --figma-muted:#8a6770;
+    --figma-shadow:0 10px 24px rgba(141,16,62,.16);
+}
+
+html{scroll-behavior:smooth;}
+body{
+    margin:0 !important;
+    padding:0 !important;
+    background:var(--figma-dark) !important;
+    color:var(--figma-text) !important;
+    font-family:'Poppins',sans-serif !important;
+}
+.container{
+    width:min(1280px,100%) !important;
+    min-height:100vh !important;
+    margin:0 auto !important;
+    background:var(--figma-cream) !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    overflow-x:hidden !important;
+}
+.navbar{
+    height:64px !important;
+    min-height:64px !important;
+    padding:0 34px !important;
+    background:linear-gradient(to right,#b52b59,#f06c96) !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:24px !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+}
+.logo{
+    margin:0 !important;
+    font-family:'Great Vibes',cursive !important;
+    color:#fff !important;
+    font-size:38px !important;
+    font-weight:400 !important;
+    line-height:1 !important;
+    letter-spacing:.2px !important;
+    white-space:nowrap !important;
+    text-shadow:none !important;
+}
+.menu{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:28px !important;
+    list-style:none !important;
+    flex-wrap:nowrap !important;
+}
+.menu a{
+    position:relative !important;
+    padding:6px 0 !important;
+    color:#ffe4ec !important;
+    font-family:'Playfair Display',serif !important;
+    font-size:15px !important;
+    font-weight:500 !important;
+    text-decoration:none !important;
+    line-height:1.2 !important;
+    letter-spacing:.1px !important;
+    border-bottom:0 !important;
+}
+.menu a::after{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    bottom:-4px !important;
+    width:0 !important;
+    height:2px !important;
+    margin:auto !important;
+    border-radius:99px !important;
+    background:#fff !important;
+    transition:.25s ease !important;
+}
+.menu a:hover,
+.menu a.active,
+.menu .active{
+    color:#fff !important;
+    font-weight:500 !important;
+}
+.menu a:hover::after,
+.menu a.active::after,
+.menu .active::after{
+    width:100% !important;
+}
+.login-btn{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-width:106px !important;
+    min-height:35px !important;
+    padding:8px 22px !important;
+    border-radius:6px !important;
+    background:#fff !important;
+    color:var(--figma-plum) !important;
+    font-family:'Playfair Display',serif !important;
+    font-size:13px !important;
+    font-weight:500 !important;
+    text-decoration:none !important;
+    box-shadow:none !important;
+    white-space:nowrap !important;
+}
+.login-btn:hover{transform:translateY(-1px) !important;}
+button,input,a{transition:.25s ease;}
+img{display:block;}
+@media(max-width:900px){
+    .container{width:100% !important;}
+    .navbar{height:auto !important;padding:16px !important;flex-direction:column !important;gap:12px !important;}
+    .menu{gap:14px 18px !important;flex-wrap:wrap !important;}
+    .menu a{font-size:13px !important;}
+    .logo{font-size:36px !important;}
+}

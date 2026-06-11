@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Join Our Models | DressVerse</title>
+
+<link rel="stylesheet" href="models.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">DressVerse</div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="../home/home.html">Home</a>
+            </li>
+
+            <li>
+                <a href="../creatives/creatives.html">Our Creatives</a>
+            </li>
+
+            <li>
+                <a href="../gallery/gallery.html">Gallery</a>
+            </li>
+
+            <li>
+                <a href="../event/event.html">Event</a>
+            </li>
+
+            <li>
+                <a href="models.html" class="active">Join Our Models</a>
+            </li>
+
+        </ul>
+
+        <a href="../login/login.html" class="login-btn" id="navbar-user">
+            Login
+        </a>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <div class="circle"></div>
+
+            <img
+            src="../foto/daftar_model.png"
+            alt="Fashion Model">
+
+        </div>
+
+        <div class="hero-right">
+
+            <h1>
+                Step Into the World of Fashion
+            </h1>
+
+        </div>
+
+    </section>
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <input
+        type="text"
+        id="searchInput"
+        placeholder="Search...">
+
+    </div>
+
+    <!-- GRID -->
+
+    <section class="grid" id="modelsGrid"></section>
+
+</div>
+
+<script>
+
+const nama =
+localStorage.getItem("nama");
+
+if(nama){
+
+    document.getElementById("navbar-user").innerText =
+    nama;
+
+}
+
+const modelsGrid =
+document.getElementById("modelsGrid");
+
+const searchInput =
+document.getElementById("searchInput");
+
+let projectsData = [];
+
+function renderProjects(data){
+
+    modelsGrid.innerHTML = "";
+
+    if(!data || data.length === 0){
+
+        modelsGrid.innerHTML = `
+            <div class="empty-state">
+                <i class="fa-regular fa-folder-open"></i>
+                <h3>Belum ada project</h3>
+                <p>Project model akan muncul di sini.</p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+    data.forEach(item => {
+
+        const tanggal =
+        new Date(item.deadline);
+
+        const formatTanggal =
+        tanggal.toLocaleDateString("id-ID", {
+            day:"numeric",
+            month:"long",
+            year:"numeric"
+        });
+
+        const imageHTML =
+        item.gambar
+        ? `<img src="../foto/${item.gambar}" alt="${item.nama_project}">`
+        : `<div class="project-placeholder"></div>`;
+
+        modelsGrid.innerHTML += `
+            <div class="card">
+
+                <div class="card-image">
+                    ${imageHTML}
+                </div>
+
+                <div class="info">
+
+                    <div class="project-text">
+
+                        <p>
+                            <span>Project</span>
+                            :
+                            <b>${item.nama_project || "Go Project"}</b>
+                        </p>
+
+                        <p>
+                            <span>Category</span>
+                            :
+                            ${item.kategori || "-"}
+                        </p>
+
+                        <p>
+                            <span>Location</span>
+                            :
+                            ${item.lokasi || "-"}
+                        </p>
+
+                        <p>
+                            <span>Deadline</span>
+                            :
+                            ${formatTanggal}
+                        </p>
+
+                        <div class="gender-icon">
+                            <i class="fa-solid fa-venus"></i>
+                        </div>
+
+                    </div>
+
+                    <a href="apply.html?id=${item.id_project}">
+                        <button type="button">
+                            Apply
+                        </button>
+                    </a>
+
+                </div>
+
+            </div>
+        `;
+
+    });
+
+}
+
+async function loadProjects(){
+
+    try{
+
+        const response =
+        await fetch("http://localhost:5000/projects");
+
+        const data =
+        await response.json();
+
+        projectsData =
+        data;
+
+        renderProjects(projectsData);
+
+    }catch(error){
+
+        console.log(error);
+        renderProjects([]);
+
+    }
+
+}
+
+searchInput.addEventListener("input", function(){
+
+    const keyword =
+    searchInput.value.toLowerCase();
+
+    const filtered =
+    projectsData.filter(item => {
+
+        return String(item.nama_project || "")
+        .toLowerCase()
+        .includes(keyword)
+        ||
+        String(item.kategori || "")
+        .toLowerCase()
+        .includes(keyword)
+        ||
+        String(item.lokasi || "")
+        .toLowerCase()
+        .includes(keyword);
+
+    });
+
+    renderProjects(filtered);
+
+});
+
+loadProjects();
+
+</script>
+
+</body>
+</html>

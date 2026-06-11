@@ -1,0 +1,206 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#1e1e1e;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:100%;
+    min-height:100vh;
+    background:#f4eeea;
+    display:flex;
+    padding:20px;
+}
+
+/* LEFT */
+
+.left-side{
+    width:55%;
+    display:flex;
+}
+
+.left-side img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* RIGHT */
+
+.right-side{
+    width:45%;
+    padding:50px 60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+/* LOGO */
+
+.logo{
+    font-family:'Great Vibes', cursive;
+    color:#8b1e3f;
+    font-size:48px;
+}
+
+/* TITLE */
+
+.title{
+    font-family:'Great Vibes', cursive;
+    font-size:75px;
+    color:#8b1e3f;
+    margin:20px 0 10px;
+}
+
+/* DESC */
+
+.desc{
+    color:#777;
+    margin-bottom:35px;
+    line-height:1.7;
+}
+
+/* FORM */
+
+form{
+    width:100%;
+}
+
+form label{
+    display:block;
+    margin-bottom:10px;
+    color:#8b1e3f;
+    font-weight:600;
+}
+
+form input{
+    width:100%;
+    height:50px;
+    border:none;
+    border-radius:8px;
+    padding:12px;
+    margin-bottom:30px;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+    outline:none;
+}
+
+/* BUTTON */
+
+.reset-btn{
+    width:100%;
+    border:none;
+    padding:14px;
+    background:#f46c94;
+    color:white;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.reset-btn:hover{
+    background:#d94f79;
+}
+
+/* BACK LOGIN */
+
+.back-login{
+    margin-top:25px;
+    text-align:center;
+}
+
+.back-login a{
+    color:#8b1e3f;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.back-login a:hover{
+    text-decoration:underline;
+}
+
+/* =========================================================
+   Login/Register image and Google icon fixes - CSS only
+========================================================= */
+body{
+    padding:24px !important;
+    background:linear-gradient(135deg,#fffafa,#f7e9ee) !important;
+}
+.container{
+    width:min(1220px,96vw) !important;
+    min-height:700px !important;
+    margin:0 auto !important;
+    display:flex !important;
+    background:rgba(255,253,252,.95) !important;
+    border-radius:32px !important;
+    overflow:hidden !important;
+    box-shadow:0 24px 60px rgba(126,18,60,.16) !important;
+}
+.left-side{
+    width:57% !important;
+    min-height:700px !important;
+    padding:10px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+    background:linear-gradient(145deg,#fde8ee,#f6bdcf 58%,#fff5f3) !important;
+}
+.right-side{
+    width:43% !important;
+    padding:clamp(34px,4vw,58px) !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+}
+.left-side img{
+    width:112% !important;
+    height:auto !important;
+    max-width:720px !important;
+    max-height:96% !important;
+    object-fit:contain !important;
+    object-position:center !important;
+    border-radius:24px !important;
+}
+.google-login{
+    width:52px !important;
+    height:52px !important;
+    margin:0 auto !important;
+    border:1px solid #f0ccd5 !important;
+    border-radius:50% !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    background:#fff !important;
+    cursor:pointer !important;
+    box-shadow:0 10px 22px rgba(126,18,60,.08) !important;
+}
+.google-login img{
+    width:24px !important;
+    height:24px !important;
+    border:none !important;
+    border-radius:0 !important;
+    padding:0 !important;
+    box-shadow:none !important;
+    object-fit:contain !important;
+    display:block !important;
+}
+.logo{font-weight:400 !important;}
+.title{font-family:'Poppins',sans-serif !important;font-weight:600 !important;font-size:clamp(28px,3vw,38px) !important;}
+@media(max-width:900px){
+    body{padding:0 !important;}
+    .container{width:100% !important;min-height:100vh !important;border-radius:0 !important;}
+    .left-side{display:none !important;}
+    .right-side{width:100% !important;padding:42px clamp(24px,6vw,60px) !important;}
+}

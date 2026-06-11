@@ -1,0 +1,457 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#1d1d1d;
+    padding:20px;
+    font-family:'Playfair Display', serif;
+}
+
+/* CONTAINER */
+
+.container{
+    background:#F5EFEB;
+    min-height:100vh;
+    overflow:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:70px;
+    background:linear-gradient(to right,#b52b59,#f06c96);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 30px;
+}
+
+.logo{
+    font-family:'Great Vibes', cursive;
+    color:white;
+    font-size:40px;
+}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:40px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#ffd9e4;
+    font-size:18px;
+    font-weight:600;
+}
+
+.menu .active{
+    border-bottom:3px solid white;
+}
+
+.login-btn{
+    background:white;
+    color:#b52b59;
+    padding:8px 20px;
+    border-radius:10px;
+    text-decoration:none;
+}
+
+/* TITLE */
+
+.title-section{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+    padding:60px 0 20px;
+}
+
+.title-section h1{
+    font-family:'Great Vibes', cursive;
+    font-size:90px;
+    color:#8d103e;
+    z-index:2;
+}
+
+.line{
+    width:120px;
+    height:2px;
+    background:#8d103e;
+    z-index:2;
+}
+
+/* BLUR */
+
+.blur{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    position:absolute;
+    filter:blur(70px);
+    opacity:0.7;
+}
+
+.blur1{
+    background:#f06c96;
+    left:-60px;
+    top:0;
+}
+
+.blur2{
+    background:#f8b4c7;
+    right:-60px;
+    top:20px;
+}
+
+/* CARDS */
+
+.cards{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    margin:40px 0 80px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:180px;
+    height:250px;
+    background:linear-gradient(#ff7a9c,#b52b59);
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    transition:.4s;
+    text-decoration:none;
+}
+
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.rotate1{
+    transform:rotate(-25deg);
+}
+
+.rotate2{
+    transform:rotate(-10deg);
+}
+
+.rotate3{
+    transform:rotate(5deg);
+}
+
+.rotate4{
+    transform:rotate(15deg);
+}
+
+.rotate5{
+    transform:rotate(25deg);
+}
+
+.card:hover{
+    transform:scale(1.1) rotate(0deg);
+}
+
+/* POPULAR */
+
+.popular{
+    position:relative;
+    padding:80px 60px;
+}
+
+.popular h2{
+    text-align:center;
+    font-family:'Great Vibes', cursive;
+    font-size:65px;
+    color:#8d103e;
+    margin-bottom:40px;
+}
+
+/* SEARCH */
+
+.search-box{
+    display:flex;
+    justify-content:center;
+    margin-bottom:50px;
+}
+
+.search-box input{
+    width:350px;
+    padding:14px 20px;
+    border:none;
+    border-radius:8px;
+    background:white;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    outline:none;
+}
+
+/* GRID */
+
+.popular-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:30px;
+}
+
+/* CARD */
+
+.popular-card{
+    background:#f3c0cb;
+    border-radius:6px;
+    overflow:hidden;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    text-decoration:none;
+}
+
+.popular-card:hover{
+    transform:translateY(-8px);
+}
+
+.popular-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.popular-info{
+    padding:10px;
+}
+
+.popular-info h3{
+    color:#8d103e;
+    font-size:15px;
+    margin-bottom:8px;
+}
+
+.popular-info p{
+    font-size:13px;
+    color:#6b6b6b;
+}
+
+/* BLUR */
+
+.popular-blur{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:0.6;
+}
+
+.blur-left{
+    width:180px;
+    height:180px;
+    background:#ef8eac;
+    left:-70px;
+    bottom:100px;
+}
+
+.blur-right{
+    width:200px;
+    height:200px;
+    background:#f4a8bc;
+    right:-70px;
+    top:300px;
+}
+
+/* =========================================================
+   DressVerse Figma alignment - common layout/nav override
+   Ditambahkan tanpa mengubah struktur HTML
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root{
+    --figma-dark:#1e1e1e;
+    --figma-cream:#F5EFEB;
+    --figma-soft:#fff7f4;
+    --figma-pink:#f06c96;
+    --figma-rose:#b52b59;
+    --figma-plum:#8d103e;
+    --figma-text:#4b2933;
+    --figma-muted:#8a6770;
+    --figma-shadow:0 10px 24px rgba(141,16,62,.16);
+}
+
+html{scroll-behavior:smooth;}
+body{
+    margin:0 !important;
+    padding:0 !important;
+    background:var(--figma-dark) !important;
+    color:var(--figma-text) !important;
+    font-family:'Poppins',sans-serif !important;
+}
+.container{
+    width:min(1280px,100%) !important;
+    min-height:100vh !important;
+    margin:0 auto !important;
+    background:var(--figma-cream) !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    overflow-x:hidden !important;
+}
+.navbar{
+    height:64px !important;
+    min-height:64px !important;
+    padding:0 34px !important;
+    background:linear-gradient(to right,#b52b59,#f06c96) !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:24px !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+}
+.logo{
+    margin:0 !important;
+    font-family:'Great Vibes',cursive !important;
+    color:#fff !important;
+    font-size:38px !important;
+    font-weight:400 !important;
+    line-height:1 !important;
+    letter-spacing:.2px !important;
+    white-space:nowrap !important;
+    text-shadow:none !important;
+}
+.menu{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:28px !important;
+    list-style:none !important;
+    flex-wrap:nowrap !important;
+}
+.menu a{
+    position:relative !important;
+    padding:6px 0 !important;
+    color:#ffe4ec !important;
+    font-family:'Playfair Display',serif !important;
+    font-size:15px !important;
+    font-weight:500 !important;
+    text-decoration:none !important;
+    line-height:1.2 !important;
+    letter-spacing:.1px !important;
+    border-bottom:0 !important;
+}
+.menu a::after{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    bottom:-4px !important;
+    width:0 !important;
+    height:2px !important;
+    margin:auto !important;
+    border-radius:99px !important;
+    background:#fff !important;
+    transition:.25s ease !important;
+}
+.menu a:hover,
+.menu a.active,
+.menu .active{
+    color:#fff !important;
+    font-weight:500 !important;
+}
+.menu a:hover::after,
+.menu a.active::after,
+.menu .active::after{
+    width:100% !important;
+}
+.login-btn{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-width:106px !important;
+    min-height:35px !important;
+    padding:8px 22px !important;
+    border-radius:6px !important;
+    background:#fff !important;
+    color:var(--figma-plum) !important;
+    font-family:'Playfair Display',serif !important;
+    font-size:13px !important;
+    font-weight:500 !important;
+    text-decoration:none !important;
+    box-shadow:none !important;
+    white-space:nowrap !important;
+}
+.login-btn:hover{transform:translateY(-1px) !important;}
+button,input,a{transition:.25s ease;}
+img{display:block;}
+@media(max-width:900px){
+    .container{width:100% !important;}
+    .navbar{height:auto !important;padding:16px !important;flex-direction:column !important;gap:12px !important;}
+    .menu{gap:14px 18px !important;flex-wrap:wrap !important;}
+    .menu a{font-size:13px !important;}
+    .logo{font-size:36px !important;}
+}
+
+
+/* =========================================================
+   Our Creatives - Figma-family style override
+========================================================= */
+.title-section{
+    position:relative !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:34px !important;
+    padding:74px 0 42px !important;
+}
+.title-section h1{
+    margin:0 !important;
+    color:var(--figma-plum) !important;
+    font-family:'Great Vibes',cursive !important;
+    font-size:clamp(62px,7vw,92px) !important;
+    line-height:1 !important;
+    font-weight:400 !important;
+}
+.title-section span,
+.title-section::before,
+.title-section::after{
+    background:var(--figma-plum) !important;
+}
+.cards{
+    width:min(1180px,94%) !important;
+    margin:0 auto 64px !important;
+    display:grid !important;
+    grid-template-columns:repeat(5,1fr) !important;
+    gap:24px !important;
+    align-items:center !important;
+}
+.card{
+    height:260px !important;
+    border-radius:24px !important;
+    background:linear-gradient(160deg,#ff6b9c,#b52b59) !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+    box-shadow:0 18px 35px rgba(141,16,62,.18) !important;
+}
+.card img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:contain !important;
+    padding:16px !important;
+}
+.popular,.popular-section{
+    width:min(1180px,94%) !important;
+    margin:0 auto 70px !important;
+}
+.search-box input{
+    width:min(500px,90vw) !important;
+    height:42px !important;
+    border:0 !important;
+    border-radius:6px !important;
+    background:#fff !important;
+    box-shadow:0 4px 12px rgba(0,0,0,.15) !important;
+}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr) !important;}.card{height:230px !important;transform:rotate(0deg) !important;}}
+@media(max-width:520px){.cards{grid-template-columns:1fr !important;}}

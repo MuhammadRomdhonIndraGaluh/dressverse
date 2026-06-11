@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Designer Profile | DressVerse</title>
+
+<link rel="stylesheet" href="designer.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            DressVerse
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="../home/home.html">Home</a>
+            </li>
+
+            <li>
+                <a href="creatives.html" class="active">Our Creatives</a>
+            </li>
+
+            <li>
+                <a href="../gallery/gallery.html">Gallery</a>
+            </li>
+
+            <li>
+                <a href="../event/event.html">Event</a>
+            </li>
+
+            <li>
+                <a href="../models/models.html">Join Our Models</a>
+            </li>
+
+        </ul>
+
+        <a href="../login/login.html" class="login-btn" id="navbar-user">
+            Login
+        </a>
+
+    </nav>
+
+    <!-- PROFILE -->
+
+    <section class="profile-section">
+
+        <div class="blur blur1"></div>
+        <div class="blur blur2"></div>
+
+        <button
+        class="back-btn"
+        onclick="window.location.href='creatives.html'">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </button>
+
+        <div class="profile-left">
+
+            <img
+            src="../foto/nayla.jpg"
+            class="profile-img"
+            alt="Designer Profile">
+
+            <div class="profile-text">
+
+                <h1 id="nickname">NaellTzy</h1>
+
+                <p id="username">@naylaameliazahra</p>
+
+                <div class="stats">
+
+                    <span>
+                        <b>
+                            <span id="followers">0</span>
+                            Followers
+                        </b>
+                    </span>
+
+                    <span>
+                        |
+                        <span id="following">0</span>
+                        Following
+                    </span>
+
+                    <span>
+                        |
+                        <span id="likes">0</span>
+                        Likes
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="profile-right">
+
+            <button class="follow-btn" id="followBtn">
+                Follow
+            </button>
+
+            <p class="bio">
+                Experienced fashion designer with a strong passion for style and detail.
+                Skilled in conceptualizing, designing, and producing fashion pieces
+                for various occasions, from runway collections to commercial projects.
+            </p>
+
+            <div class="contact">
+
+                <p>
+                    Instagram :
+                    <span id="instagram">nylaz_</span>
+                </p>
+
+                <p>
+                    Contact :
+                    <span id="contact">naylaameliazahra@gmail.com</span>
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="profile-actions">
+
+            <button class="icon-action">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+            </button>
+
+            <button class="icon-action">
+                <i class="fa-solid fa-ellipsis"></i>
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- CREATED -->
+
+    <section class="created-section">
+
+        <div class="created-title">
+            Created
+        </div>
+
+        <div class="created-grid" id="createdGrid"></div>
+
+    </section>
+
+</div>
+
+<script>
+
+const nama =
+localStorage.getItem("nama");
+
+if(nama){
+
+    document.getElementById("navbar-user").innerText =
+    nama;
+
+}
+
+const params =
+new URLSearchParams(window.location.search);
+
+const id =
+params.get("id");
+
+async function loadDesigner(){
+
+    try{
+
+        if(!id){
+            return;
+        }
+
+        const response =
+        await fetch(`http://localhost:5000/desainer/${id}`);
+
+        const data =
+        await response.json();
+
+        document.getElementById("nickname").innerText =
+        data.nickname || "Designer";
+
+        document.getElementById("username").innerText =
+        `@${data.username || "username"}`;
+
+        document.getElementById("followers").innerText =
+        data.followers || 0;
+
+        document.getElementById("following").innerText =
+        data.following || 0;
+
+        document.getElementById("likes").innerText =
+        data.likes || 0;
+
+        if(data.foto_profile){
+
+            document.querySelector(".profile-img").src =
+            `../foto/${data.foto_profile}`;
+
+        }
+
+        document.querySelector(".bio").innerText =
+        data.bio || "";
+
+        document.getElementById("instagram").innerText =
+        data.instagram || "-";
+
+        document.getElementById("contact").innerText =
+        data.kontak || "-";
+
+        const followBtn =
+        document.getElementById("followBtn");
+
+        if(localStorage.getItem(`followed_${id}`)){
+
+            followBtn.innerText =
+            "Following";
+
+            followBtn.classList.add("following");
+
+        }
+
+        const karyaResponse =
+        await fetch(`http://localhost:5000/designer-karya/${id}`);
+
+        const karyaData =
+        await karyaResponse.json();
+
+        const createdGrid =
+        document.getElementById("createdGrid");
+
+        createdGrid.innerHTML = "";
+
+        if(!karyaData || karyaData.length === 0){
+            return;
+        }
+
+        karyaData.forEach(item => {
+
+            if(!item.foto_karya){
+                return;
+            }
+
+            createdGrid.innerHTML += `
+                <a
+                href="../gallery/fashion.html?id=${item.id_karya}"
+                class="created-card">
+
+                    <img
+                    src="../foto/${item.foto_karya}"
+                    alt="Created Fashion">
+
+                </a>
+            `;
+
+        });
+
+    }catch(error){
+
+        console.log(error);
+
+    }
+
+}
+
+document.getElementById("followBtn")
+.addEventListener("click", async () => {
+
+    if(!id){
+        return;
+    }
+
+    const followBtn =
+    document.getElementById("followBtn");
+
+    const followersText =
+    document.getElementById("followers");
+
+    let followersCount =
+    parseInt(followersText.innerText) || 0;
+
+    if(localStorage.getItem(`followed_${id}`)){
+
+        await fetch(`http://localhost:5000/unfollow/${id}`, {
+            method:"PUT"
+        });
+
+        localStorage.removeItem(`followed_${id}`);
+
+        followBtn.innerText =
+        "Follow";
+
+        followBtn.classList.remove("following");
+
+        followersText.innerText =
+        Math.max(followersCount - 1, 0);
+
+        return;
+
+    }
+
+    await fetch(`http://localhost:5000/follow/${id}`, {
+        method:"PUT"
+    });
+
+    localStorage.setItem(`followed_${id}`, true);
+
+    followBtn.innerText =
+    "Following";
+
+    followBtn.classList.add("following");
+
+    followersText.innerText =
+    followersCount + 1;
+
+});
+
+loadDesigner();
+
+</script>
+
+</body>
+</html>

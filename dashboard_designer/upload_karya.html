@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Upload Karya | DressVerse</title>
+
+<link rel="stylesheet" href="upload_karya.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo">
+
+                <h1>DressVerse</h1>
+
+                <p>
+                    <i class="fa-solid fa-heart"></i>
+                    DESIGNER PORTAL
+                </p>
+
+            </div>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="mygallery.html">
+                        <i class="fa-regular fa-image"></i>
+                        My Gallery
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="#">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        Upload Karya
+                    </a>
+                </li>
+
+                <li>
+                    <a href="project_model.html">
+                        <i class="fa-solid fa-users"></i>
+                        Project Model
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="logout">
+
+            <button onclick="logout()">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Keluar
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <div class="page-title">
+
+                <i class="fa-solid fa-bars"></i>
+
+                <h2>Upload Karya</h2>
+
+            </div>
+
+            <div class="top-right">
+
+                <div class="notification">
+                </div>
+
+                <div class="profile">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div>
+
+                <h1>
+                    Upload Karya
+                    <span class="sparkle">✦</span>
+                </h1>
+
+                <p>
+                    Bagikan karya terbaikmu ke dunia.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- CONTENT -->
+
+        <section class="upload-layout">
+
+            <!-- FORM -->
+
+            <div class="upload-card">
+
+                <form id="uploadForm">
+
+                    <div class="form-group">
+
+                        <label for="judul">
+                            Judul Karya <span>*</span>
+                        </label>
+
+                        <input
+                        type="text"
+                        id="judul"
+                        placeholder="Contoh: Elegant Black Dress"
+                        required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="kategori">
+                            Kategori <span>*</span>
+                        </label>
+
+                        <div class="select-wrap">
+
+                            <select id="kategori" required>
+
+                                <option value="">
+                                    Pilih Kategori
+                                </option>
+
+                                <option value="Dresses">
+                                    Dresses
+                                </option>
+
+                                <option value="Pants">
+                                    Pants
+                                </option>
+
+                                <option value="Skirts">
+                                    Skirts
+                                </option>
+
+                                <option value="Couture">
+                                    Couture
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="foto_karya">
+                            Foto Karya <span>*</span>
+                        </label>
+
+                        <div class="upload-box">
+
+                            <div class="upload-icon">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </div>
+
+                            <h4>
+                                Klik untuk upload foto
+                            </h4>
+
+                            <p>
+                                PNG, JPG maksimal 5MB
+                            </p>
+
+                            <input
+                            type="file"
+                            id="foto_karya"
+                            accept="image/png,image/jpeg,image/jpg"
+                            required>
+
+                        </div>
+
+                        <p class="upload-note">
+                            <i class="fa-solid fa-circle-info"></i>
+                            Maksimal 5 foto. Kamu dapat mengubah urutan setelah upload.
+                        </p>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="deskripsi">
+                            Deskripsi Karya <span>*</span>
+                        </label>
+
+                        <textarea
+                        id="deskripsi"
+                        maxlength="1000"
+                        placeholder="Ceritakan tentang karya Anda, inspirasi, bahan yang digunakan, proses pembuatan, dan detail lainnya..."
+                        required></textarea>
+
+                        <div class="char-count">
+                            0/1000
+                        </div>
+
+                    </div>
+
+                    <div class="button-group">
+
+                        <button
+                        type="button"
+                        class="cancel-btn">
+
+                            Batal
+
+                        </button>
+
+                        <button
+                        type="submit"
+                        class="upload-btn">
+
+                            <i class="fa-solid fa-upload"></i>
+                            Upload Karya
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- TIPS -->
+
+            <aside class="tips-card">
+
+                <h3>
+                    <span>
+                        <i class="fa-regular fa-lightbulb"></i>
+                    </span>
+                    Tips Upload Karya
+                </h3>
+
+                <div class="tip-item">
+
+                    <div class="tip-icon">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Gunakan Foto Berkualitas Tinggi
+                        </h4>
+
+                        <p>
+                            Pastikan foto jelas, pencahayaan baik, dan detail karya terlihat dengan jelas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="tip-item">
+
+                    <div class="tip-icon">
+                        <i class="fa-regular fa-tag"></i>
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Pilih Kategori yang Tepat
+                        </h4>
+
+                        <p>
+                            Agar karya kamu mudah ditemukan oleh pengguna yang tepat.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="tip-item">
+
+                    <div class="tip-icon">
+                        <i class="fa-solid fa-pen"></i>
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Deskripsi yang Menarik
+                        </h4>
+
+                        <p>
+                            Ceritakan inspirasi dan keunikan karya kamu untuk menarik perhatian.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="tip-item">
+
+                    <div class="tip-icon">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Tampilkan Karya Terbaikmu
+                        </h4>
+
+                        <p>
+                            Upload karya yang paling kamu banggakan.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="upload_karya.js"></script>
+
+<script>
+
+function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+    "../login/login.html";
+
+}
+
+const deskripsi =
+document.getElementById("deskripsi");
+
+const charCount =
+document.querySelector(".char-count");
+
+if(deskripsi && charCount){
+
+    deskripsi.addEventListener("input", function(){
+
+        charCount.textContent =
+        `${deskripsi.value.length}/1000`;
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>

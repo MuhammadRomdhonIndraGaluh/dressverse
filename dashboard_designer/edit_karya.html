@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Karya | DressVerse</title>
+
+<link rel="stylesheet" href="edit_karya.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo">
+
+                <h1>DressVerse</h1>
+
+                <p>
+                    <i class="fa-solid fa-heart"></i>
+                    DESIGNER PORTAL
+                </p>
+
+            </div>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="mygallery.html">
+                        <i class="fa-regular fa-image"></i>
+                        My Gallery
+                    </a>
+                </li>
+
+                <li>
+                    <a href="upload_karya.html">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        Upload Karya
+                    </a>
+                </li>
+
+                <li>
+                    <a href="project_model.html">
+                        <i class="fa-solid fa-users"></i>
+                        Project Model
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="logout">
+
+            <button onclick="logout()">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Keluar
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <div class="page-title">
+
+                <i class="fa-solid fa-bars"></i>
+
+                <h2>Edit Karya</h2>
+
+            </div>
+
+            <div class="top-right">
+
+                <div class="notification">
+
+                </div>
+
+                <div class="profile">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div>
+
+                <h1>
+                    Edit Karya
+                    <span class="sparkle">✦</span>
+                </h1>
+
+                <p>
+                    Perbarui informasi karya fashion Anda agar tetap menarik bagi model dan pengunjung.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- CONTENT -->
+
+        <section class="edit-layout">
+
+            <!-- FORM CARD -->
+
+            <div class="edit-card">
+
+                <form id="editForm">
+
+                    <div class="form-group">
+
+                        <label for="judul">
+                            Judul Karya <span>*</span>
+                        </label>
+
+                        <input
+                        type="text"
+                        id="judul"
+                        placeholder="Masukkan judul karya"
+                        required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="kategori">
+                            Kategori <span>*</span>
+                        </label>
+
+                        <div class="select-wrap">
+
+                            <select id="kategori" required>
+
+                                <option value="">
+                                    Pilih Kategori
+                                </option>
+
+                                <option value="Dress">
+                                    Dress
+                                </option>
+
+                                <option value="Pants">
+                                    Pants
+                                </option>
+
+                                <option value="Skirts">
+                                    Skirts
+                                </option>
+
+                                <option value="Couture">
+                                    Couture
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Foto Saat Ini
+                        </label>
+
+                        <img
+                        id="previewFoto"
+                        class="preview-img"
+                        src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=80"
+                        alt="Preview Karya">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="foto_karya">
+                            Ganti Foto
+                            <span class="optional">(Opsional)</span>
+                        </label>
+
+                        <div class="file-box">
+
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                            <div>
+                                <h4>Pilih foto baru</h4>
+                                <p>PNG, JPG maksimal 5MB</p>
+                            </div>
+
+                            <input
+                            type="file"
+                            id="foto_karya"
+                            accept="image/png,image/jpeg,image/jpg">
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="deskripsi">
+                            Deskripsi Karya <span>*</span>
+                        </label>
+
+                        <textarea
+                        id="deskripsi"
+                        maxlength="1000"
+                        placeholder="Masukkan deskripsi karya..."
+                        required></textarea>
+
+                        <div class="char-count">
+                            0/1000
+                        </div>
+
+                    </div>
+
+                    <div class="button-group">
+
+                        <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="history.back()">
+
+                            Batal
+
+                        </button>
+
+                        <button
+                        type="submit"
+                        class="save-btn">
+
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            Simpan Perubahan
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- INFO CARD -->
+
+            <aside class="info-card">
+
+                <h3>
+                    <span>
+                        <i class="fa-regular fa-lightbulb"></i>
+                    </span>
+                    Tips Edit Karya
+                </h3>
+
+                <div class="tip">
+
+                    <div class="tip-icon">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Gunakan Foto Berkualitas
+                        </h4>
+
+                        <p>
+                            Pastikan foto karya memiliki pencahayaan yang baik dan terlihat jelas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="tip">
+
+                    <div class="tip-icon">
+                        <i class="fa-solid fa-align-left"></i>
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Perbaiki Deskripsi
+                        </h4>
+
+                        <p>
+                            Tambahkan detail bahan, konsep desain, dan inspirasi karya Anda.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="tip">
+
+                    <div class="tip-icon">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Tampilkan Versi Terbaik
+                        </h4>
+
+                        <p>
+                            Gunakan foto dan informasi terbaik agar menarik lebih banyak model.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="tip">
+
+                    <div class="tip-icon">
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Update Secara Berkala
+                        </h4>
+
+                        <p>
+                            Karya yang diperbarui secara berkala lebih menarik perhatian pengunjung.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="edit_karya.js"></script>
+
+<script>
+
+function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+    "../login/login.html";
+
+}
+
+const deskripsi =
+document.getElementById("deskripsi");
+
+const charCount =
+document.querySelector(".char-count");
+
+if(deskripsi && charCount){
+
+    deskripsi.addEventListener("input", function(){
+
+        charCount.textContent =
+        `${deskripsi.value.length}/1000`;
+
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>

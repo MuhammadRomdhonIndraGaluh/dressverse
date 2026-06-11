@@ -1,0 +1,727 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --pink:#d92363;
+    --pink-dark:#b7134c;
+    --pink-soft:#fff0f5;
+    --pink-border:#f3dce5;
+    --text:#18171c;
+    --muted:#68636a;
+    --bg:#fffdfd;
+    --white:#ffffff;
+    --shadow:0 13px 34px rgba(177,24,83,.08);
+}
+
+html,
+body{
+    width:100%;
+    min-height:100vh;
+    overflow-x:hidden;
+    background:var(--bg);
+    font-family:'Poppins',sans-serif;
+    color:var(--text);
+}
+
+body{
+    min-height:100vh;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+    background:var(--bg);
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    width:250px;
+    min-width:250px;
+    height:100vh;
+    padding:32px 22px;
+    color:white;
+    background:linear-gradient(
+        180deg,
+        #d72a68 0%,
+        #cb225b 55%,
+        #b91c50 100%
+    );
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    overflow:hidden;
+    z-index:100;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:46px;
+    position:relative;
+}
+
+.logo::before{
+    content:"♛";
+    position:absolute;
+    top:-22px;
+    left:50%;
+    transform:translateX(-50%) rotate(-8deg);
+    color:white;
+    font-size:26px;
+}
+
+.logo h1{
+    font-family:'Great Vibes',cursive;
+    font-size:43px;
+    font-weight:400;
+    line-height:1;
+    color:white;
+}
+
+.logo p{
+    margin-top:12px;
+    font-size:12px;
+    letter-spacing:2px;
+    font-weight:700;
+}
+
+.logo p i{
+    margin-right:5px;
+    font-size:10px;
+}
+
+.menu{
+    list-style:none;
+}
+
+.menu li{
+    margin-bottom:14px;
+}
+
+.menu li a{
+    text-decoration:none;
+    color:white;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 16px;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:700;
+    transition:.2s ease;
+}
+
+.menu li a i{
+    width:20px;
+    font-size:18px;
+    text-align:center;
+}
+
+.menu li a:hover{
+    background:rgba(255,255,255,.14);
+}
+
+.menu .active a{
+    background:#fffafa;
+    color:var(--pink);
+    box-shadow:0 12px 24px rgba(105,6,43,.16);
+}
+
+/* LOGOUT */
+
+.logout{
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.25);
+}
+
+.logout button{
+    width:100%;
+    border:none;
+    background:transparent;
+    color:white;
+    padding:14px 16px;
+    border-radius:12px;
+    cursor:pointer;
+    text-align:left;
+    font-size:14px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    transition:.2s ease;
+}
+
+.logout button i{
+    width:20px;
+    font-size:18px;
+    text-align:center;
+}
+
+.logout button:hover{
+    background:rgba(255,255,255,.14);
+}
+
+/* MAIN */
+
+.main{
+    flex:1;
+    min-width:0;
+    margin-left:250px;
+    padding:28px 34px 40px;
+    background:var(--bg);
+    position:relative;
+}
+
+/* TOPBAR */
+
+.topbar{
+    height:52px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:22px;
+}
+
+.page-title{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.page-title::before{
+    content:none !important;
+    display:none !important;
+}
+
+.page-title > i{
+    font-size:18px;
+    color:#202027;
+}
+
+.page-title h2{
+    font-size:22px;
+    color:#202027;
+    font-weight:800;
+}
+
+/* kalau di HTML lokal masih ada top-right/profile */
+.top-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-left:auto;
+}
+
+.notification{
+    position:relative;
+    width:24px;
+    height:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.notification::before{
+    content:"\f0f3";
+    font-family:"Font Awesome 6 Free";
+    font-weight:900;
+    font-size:20px;
+    color:#34343a;
+}
+
+.notification span,
+.notification::after{
+    display:none !important;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.profile-avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#ffd9e7;
+    color:var(--pink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+    font-weight:800;
+    overflow:hidden;
+    flex-shrink:0;
+}
+
+.profile-avatar img{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.profile-name{
+    font-size:13px;
+    font-weight:800;
+    color:#202027;
+    white-space:nowrap;
+}
+
+.profile i{
+    font-size:12px;
+    color:#202027;
+}
+
+/* HERO */
+
+.hero{
+    background:transparent;
+    border:none;
+    border-radius:0;
+    padding:0 270px 0 0;
+    margin-bottom:18px;
+    min-height:auto;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    overflow:visible;
+}
+
+.hero-left{
+    min-width:0;
+    position:relative;
+    z-index:2;
+}
+
+.small{
+    color:#555762;
+    margin-bottom:7px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.hero h1{
+    font-family:'Playfair Display','Poppins',serif;
+    font-size:34px;
+    color:var(--pink);
+    line-height:1;
+    margin-bottom:10px;
+    font-weight:800;
+}
+
+.sparkle{
+    color:#f2a2bf;
+    font-size:24px;
+}
+
+.desc{
+    color:#555762;
+    font-size:12px;
+    line-height:1.5;
+    max-width:420px;
+    font-weight:500;
+}
+
+.hero-icon{
+    display:none;
+}
+
+/* TOOLBAR */
+
+.toolbar{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+}
+
+.search-box{
+    flex:none;
+    width:360px;
+    max-width:360px;
+    height:38px;
+    background:white;
+    border-radius:8px;
+    border:1px solid var(--pink-border);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:0 14px;
+}
+
+.search-box i{
+    color:var(--pink);
+    font-size:14px;
+}
+
+.search-box input{
+    border:none;
+    outline:none;
+    width:100%;
+    background:transparent;
+    font-size:12px;
+    color:#333;
+}
+
+.search-box input::placeholder{
+    color:#9b98a0;
+}
+
+/* tombol Upload Karya kanan atas seperti prototype */
+
+.toolbar > a{
+    position:absolute;
+    top:95px;
+    right:34px;
+    z-index:20;
+    text-decoration:none;
+}
+
+.upload-btn{
+    height:42px;
+    padding:0 25px;
+    border-radius:7px;
+    border:none;
+    background:var(--pink);
+    color:white;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    white-space:nowrap;
+    transition:.2s ease;
+}
+
+.upload-btn:hover{
+    background:var(--pink-dark);
+    transform:translateY(-1px);
+}
+
+/* CATEGORY, kalau nanti kamu tambahin tombol kategori */
+
+.category-tabs{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    flex-wrap:wrap;
+}
+
+.category-btn{
+    height:38px;
+    padding:0 22px;
+    border:1px solid var(--pink-border);
+    border-radius:8px;
+    background:#fff7fa;
+    color:var(--pink);
+    font-size:12px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.category-btn:hover{
+    background:#ffe7f0;
+}
+
+.category-btn.active{
+    background:var(--pink);
+    color:white;
+    border-color:var(--pink);
+}
+
+/* GALLERY */
+
+.gallery-wrapper{
+    background:transparent;
+    border:none;
+    border-radius:0;
+    padding:0;
+}
+
+.gallery-header{
+    display:none;
+}
+
+#galleryContainer{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:18px;
+}
+
+/* CARD */
+
+.card{
+    background:white;
+    border-radius:8px;
+    overflow:hidden;
+    border:1px solid var(--pink-border);
+    transition:.2s ease;
+    min-width:0;
+    box-shadow:var(--shadow);
+}
+
+.card:hover{
+    transform:translateY(-2px);
+    border-color:#f0a5c2;
+    box-shadow:0 12px 28px rgba(177,24,83,.1);
+}
+
+.card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    display:block;
+    background:var(--pink-soft);
+}
+
+.card .content{
+    padding:12px 14px 13px;
+}
+
+.card .content h3{
+    font-family:'Playfair Display','Poppins',serif;
+    font-size:14px;
+    color:#9f174d;
+    margin-bottom:7px;
+    font-weight:800;
+    line-height:1.25;
+}
+
+.card .content p{
+    color:#68636a;
+    margin-bottom:6px;
+    font-size:11px;
+    line-height:1.45;
+}
+
+/* BUTTONS */
+
+.btn-group{
+    display:flex;
+    gap:10px;
+    margin-top:13px;
+}
+
+.edit-btn,
+.delete-btn{
+    flex:1;
+    border:none;
+    height:34px;
+    border-radius:6px;
+    cursor:pointer;
+    color:white;
+    font-size:12px;
+    font-weight:700;
+    transition:.2s ease;
+}
+
+.edit-btn{
+    background:var(--pink);
+}
+
+.edit-btn:hover{
+    background:var(--pink-dark);
+}
+
+.delete-btn{
+    background:#ff5a5f;
+}
+
+.delete-btn:hover{
+    background:#ed4247;
+}
+
+/* EMPTY STATE */
+
+.empty-state{
+    text-align:center;
+    padding:48px 20px;
+    color:#888;
+}
+
+.empty-state i{
+    font-size:46px;
+    margin-bottom:14px;
+    color:#f4a5c3;
+}
+
+.empty-state h3{
+    color:#202027;
+    margin-bottom:8px;
+    font-size:17px;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f6f0f3;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#ef9fbd;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:var(--pink);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+    .main{
+        padding:26px 28px 36px;
+    }
+
+    .toolbar > a{
+        right:28px;
+    }
+
+    #galleryContainer{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+}
+
+@media(max-width:900px){
+    .container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        min-width:100%;
+        height:auto;
+        min-height:auto;
+        padding:22px;
+    }
+
+    .main{
+        margin-left:0;
+        padding:22px 16px 34px;
+    }
+
+    .logo{
+        margin-bottom:24px;
+    }
+
+    .menu{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:10px;
+    }
+
+    .menu li{
+        margin-bottom:0;
+    }
+
+    .menu li a{
+        justify-content:center;
+        font-size:0;
+    }
+
+    .menu li a i{
+        width:auto;
+        font-size:22px;
+    }
+
+    .logout{
+        display:none;
+    }
+
+    .hero{
+        padding-right:0;
+    }
+
+    .toolbar > a{
+        position:static;
+        width:100%;
+    }
+
+    .upload-btn{
+        width:100%;
+    }
+
+    .search-box{
+        width:100%;
+        max-width:none;
+    }
+}
+
+@media(max-width:600px){
+    .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:16px;
+        height:auto;
+    }
+
+    .page-title h2{
+        font-size:24px;
+    }
+
+    .profile-name{
+        display:none;
+    }
+
+    #galleryContainer{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+}
+
+/* ========================= */
+/* FIX MY GALLERY TOPBAR + UPLOAD BUTTON */
+/* ========================= */
+
+/* hapus notifikasi dan profil desainer */
+.top-right,
+.notification,
+.profile{
+    display:none !important;
+}
+
+/* topbar cukup judul kiri aja */
+.topbar{
+    justify-content:flex-start !important;
+}
+
+/* tombol Upload Karya diturunkan agar sejajar dengan tulisan My Gallery */
+.toolbar > a{
+    position:absolute !important;
+    top:122px !important;
+    right:34px !important;
+    z-index:20 !important;
+}
+
+/* ukuran tombol tetap rapi */
+.upload-btn{
+    height:42px !important;
+    padding:0 25px !important;
+    border-radius:7px !important;
+    background:var(--pink) !important;
+    color:white !important;
+    font-size:13px !important;
+    font-weight:700 !important;
+}

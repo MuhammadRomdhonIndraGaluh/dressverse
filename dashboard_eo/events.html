@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Events - DressVerse</title>
+
+    <link rel="stylesheet" href="events.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<div class="page">
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="brand">
+                <i class="fa-solid fa-crown"></i>
+                <h1>DressVerse</h1>
+                <p>EO PORTAL</p>
+            </div>
+
+            <nav class="menu">
+
+                <a href="dashboardeo.html" class="menu-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="events.html" class="menu-item active">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>My Events</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+        <button
+            type="button"
+            class="logout"
+            onclick="logout()"
+        >
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Keluar</span>
+        </button>
+
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div class="page-title">
+                <i class="fa-solid fa-bars"></i>
+                <h2>My Events</h2>
+            </div>
+
+            <div class="profile">
+
+                <div class="notification">
+                    <i class="fa-regular fa-bell"></i>
+                    <span>3</span>
+                </div>
+
+                <div class="avatar">E</div>
+
+                <strong>Event Organizer</strong>
+
+                <i class="fa-solid fa-chevron-down arrow"></i>
+
+            </div>
+
+        </header>
+
+        <div class="content">
+
+            <section class="hero">
+
+                <div class="hero-copy">
+
+                    <h1>Event Aktif</h1>
+
+                    <div class="title-line"></div>
+
+                    <p>
+                        Kelola semua event aktif yang sedang berlangsung.
+                    </p>
+
+                </div>
+
+                <div class="stage-art">
+
+                    <span class="spark spark-one">+</span>
+                    <span class="spark spark-two">+</span>
+                    <span class="spark spark-three">+</span>
+
+                    <div class="truss">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="light light-one"></div>
+                    <div class="light light-two"></div>
+                    <div class="light light-three"></div>
+
+                    <div class="speaker speaker-left"></div>
+                    <div class="speaker speaker-right"></div>
+
+                    <div class="stage-floor"></div>
+
+                </div>
+
+                <a
+                    href="buat_event.html"
+                    class="create-button"
+                >
+                    <i class="fa-solid fa-plus"></i>
+                    Buat Event Baru
+                </a>
+
+            </section>
+
+            <section
+class="events-list"
+id="eventContainer"
+>
+</section>
+
+            <nav
+                class="pagination"
+                aria-label="Pagination"
+            >
+
+                <button
+                    type="button"
+                    aria-label="Halaman sebelumnya"
+                >
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <button
+                    type="button"
+                    class="current"
+                >
+                    1
+                </button>
+
+                <button
+                    type="button"
+                    aria-label="Halaman berikutnya"
+                >
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+            </nav>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+    const user = JSON.parse(
+        localStorage.getItem("user") || "null"
+    );
+
+    if (user) {
+
+        const name =
+            user.nama ||
+            user.name ||
+            user.username ||
+            "Event Organizer";
+
+        const profileName =
+            document.querySelector(
+                ".profile strong"
+            );
+
+        const avatar =
+            document.querySelector(
+                ".avatar"
+            );
+
+        if (profileName) {
+            profileName.textContent = name;
+        }
+
+        if (avatar) {
+            avatar.textContent =
+                name.charAt(0).toUpperCase();
+        }
+
+    }
+
+    function logout() {
+
+        localStorage.clear();
+
+        window.location.href =
+            "../login/login.html";
+
+    }
+
+fetch("http://localhost:5000/event")
+
+.then(res => res.json())
+
+.then(data => {
+
+    const container =
+    document.getElementById(
+        "eventContainer"
+    );
+
+    let html = "";
+
+    data.forEach(event => {
+
+        html += `
+
+        <article class="event-card">
+
+            <div class="event-image">
+
+                <img
+                src="http://localhost:5000/uploads/${event.gambar}"
+                alt="${event.nama_event}"
+                >
+
+            </div>
+
+            <div class="event-content">
+
+                <div class="event-top">
+
+                    <span class="category">
+                        ${event.kategori || "Fashion Show"}
+                    </span>
+
+                    <div class="event-actions">
+
+                        <span class="status">
+                            <i class="fa-solid fa-circle"></i>
+                            ${event.status}
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <h2>
+                    ${event.nama_event}
+                </h2>
+
+                <div class="event-meta">
+
+                    <span>
+                        <i class="fa-regular fa-calendar-days"></i>
+                        ${event.tanggal}
+                    </span>
+
+                    <span>
+                        <i class="fa-regular fa-clock"></i>
+                        ${event.waktu_mulai}
+                        -
+                        ${event.waktu_selesai}
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-location-dot"></i>
+                        ${event.lokasi}
+                    </span>
+
+                </div>
+
+                <div class="card-buttons">
+
+                    <a
+                    href="detail_event.html?id=${event.id_event}"
+                    class="detail-button"
+                    >
+                        Detail
+                    </a>
+
+                    <a
+                    href="edit_event.html?id=${event.id_event}"
+                    class="edit-button"
+                    >
+                        Edit
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        `;
+
+    });
+
+    container.innerHTML = html;
+
+});
+
+</script>
+
+</body>
+</html>

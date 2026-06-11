@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Apply Project</title>
+
+    <link rel="stylesheet" href="apply.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">DressVerse</div>
+
+        <ul class="menu">
+
+            <li><a href="../home/home.html">Home</a></li>
+
+            <li>
+                <a href="../creatives/creatives.html">
+                    Our Creatives
+                </a>
+            </li>
+
+            <li>
+                <a href="../gallery/gallery.html">
+                    Gallery
+                </a>
+            </li>
+
+            <li>
+                <a href="../event/event.html">
+                    Event
+                </a>
+            </li>
+
+            <li>
+                <a href="models.html" class="active">
+                    Join Our Models
+                </a>
+            </li>
+
+        </ul>
+
+        <a href="../login/login.html"
+class="login-btn"
+id="navbar-user">
+
+LOGIN
+
+</a>
+
+    </nav>
+
+    <!-- APPLY -->
+
+    <section class="apply-section">
+
+        <div class="blur blur1"></div>
+        <div class="blur blur2"></div>
+
+        <!-- BACK -->
+
+        <button class="back-btn"
+        onclick="window.location.href='models.html'">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </button>
+
+        <!-- TITLE -->
+
+        <div class="title-section">
+
+            <div class="line"></div>
+
+            <h1>Apply Project</h1>
+
+            <div class="line"></div>
+
+        </div>
+
+        <!-- CONTENT -->
+
+        <div class="apply-wrapper">
+
+            <!-- LEFT -->
+
+            <div class="project-card">
+
+                <div class="project-image">
+
+                    <img id="projectImage" src="../foto/Rectangle 97 (3).png">
+
+                </div>
+
+                <div class="project-content">
+
+                    <p class="project-by">
+                        Project By :
+                        <span id="projectBy">Annazwa Studio</span>
+                    </p>
+
+                    <h2 id="projectTitle">Female Hand Model</h2>
+
+                    <div class="project-detail">
+
+                        <p>
+                            Category :
+                            <span id="projectCategory">Hand, Fingers</span>
+                        </p>
+
+                        <p>
+                            Location :
+                            <span id="projectLocation">Bandung</span>
+                        </p>
+
+                        <p>
+                            Deadline :
+                            <span id="projectDeadline">20 March 2027</span>
+                        </p>
+
+                    </div>
+
+                    <p class="project-desc" id="project-desc">
+
+                        We are looking for a female hand model
+                        for jewelry and accessories photoshoot.
+                        The project requires clean nails,
+                        smooth skin, and confidence posing
+                        for close-up shots.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="form-card">
+
+                <h3>Application Form</h3>
+
+                <p class="form-text">
+                    Fill your data below to apply.
+                </p>
+
+                <form id="applyForm" enctype="multipart/form-data">
+
+                    <label>Full Name</label>
+                    <input type="text" id="nama">
+
+                    <label>Contact</label>
+                    <input type="text" id="kontak">
+
+                    <label>Portfolio Link</label>
+                    <input type="text" id="portof">
+
+                    <label>Upload Your Photo</label>
+
+                    <div class="upload-box">
+
+                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+
+                        <input type="file" id="foto" name="foto">
+
+                    </div>
+
+                    <button type="submit"
+                    class="submit-btn">
+
+                        Submit Application
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+<div id="popup" class="popup">
+
+    <div class="popup-box">
+
+        <h2>Success 🎀</h2>
+
+        <p>
+            Pendaftaran berhasil dikirim!
+        </p>
+
+        <button type="button" onclick="closePopup()">
+            OK
+        </button>
+
+    </div>
+
+</div>
+<script>
+
+const nama = localStorage.getItem("nama");
+
+if (nama) {
+
+    document.getElementById("navbar-user")
+    .innerText = nama;
+
+}
+
+const params =
+new URLSearchParams(window.location.search);
+
+const id =
+params.get("id");
+
+async function loadProject() {
+
+    try {
+
+        const response =
+        await fetch(
+        `http://localhost:5000/project/${id}`
+        );
+
+        const data =
+        await response.json();
+
+        const tanggal =
+        new Date(data.deadline);
+
+        const formatTanggal =
+        tanggal.toLocaleDateString(
+            "id-ID",
+            {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            }
+        );
+
+        document
+        .getElementById("projectImage")
+        .src =
+        `../foto/${data.gambar}`;
+
+        document
+        .getElementById("projectBy")
+        .innerText =
+        data.nama_project;
+
+        document
+        .getElementById("projectTitle")
+        .innerText =
+        data.nama_project;
+
+        document
+        .getElementById("projectCategory")
+        .innerText =
+        data.kategori;
+
+        document
+        .getElementById("projectLocation")
+        .innerText =
+        data.lokasi;
+
+        document
+        .getElementById("projectDeadline")
+        .innerText =
+        formatTanggal;
+
+        document
+        .getElementById("projectDesc")
+        .innerText =
+        data.deskripsi;
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+loadProject();
+
+document.getElementById("applyForm")
+.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append(
+        "nama",
+        document.getElementById("nama").value
+    );
+
+    formData.append(
+        "kontak",
+        document.getElementById("kontak").value
+    );
+
+    formData.append(
+        "portof",
+        document.getElementById("portof").value
+    );
+
+    formData.append(
+        "foto",
+        document.getElementById("foto").files[0]
+    );
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/apply-model",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+
+            document
+            .getElementById("popup")
+            .classList.add("show");
+
+            document
+            .getElementById("applyForm")
+            .reset();
+
+        } else {
+
+            alert(data.message);
+
+        }
+
+    } catch (error) {
+
+        console.log(error);
+
+        alert("Server error");
+
+    }
+
+});
+
+function closePopup() {
+
+    document
+    .getElementById("popup")
+    .classList.remove("show");
+
+}
+
+</script>
+</body>
+</html>

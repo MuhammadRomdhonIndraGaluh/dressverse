@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fashion Detail | DressVerse</title>
+
+<link rel="stylesheet" href="fashion.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            DressVerse
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="../home/home.html">Home</a>
+            </li>
+
+            <li>
+                <a href="../creatives/creatives.html">Our Creatives</a>
+            </li>
+
+            <li>
+                <a href="gallery.html" class="active">Gallery</a>
+            </li>
+
+            <li>
+                <a href="../event/event.html">Event</a>
+            </li>
+
+            <li>
+                <a href="../models/models.html">Join Our Models</a>
+            </li>
+
+        </ul>
+
+        <a href="../login/login.html" class="login-btn" id="navbar-user">
+            Login
+        </a>
+
+    </nav>
+
+    <!-- TITLE -->
+
+    <section class="fashion-title">
+
+        <button
+        class="back-btn"
+        onclick="history.back()">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </button>
+
+        <div class="title-center">
+
+            <div class="line"></div>
+
+            <h1 id="judulFashion">
+                Elegance Noir Dress
+            </h1>
+
+            <div class="line"></div>
+
+        </div>
+
+    </section>
+
+    <p class="update-text" id="update-text">
+        Loading...
+    </p>
+
+    <!-- CONTENT -->
+
+    <section class="fashion-content">
+
+        <!-- LEFT -->
+
+        <div class="fashion-left">
+
+            <div class="fashion-image">
+
+                <img
+                id="fotoFashion"
+                src="../foto/bajuhome1.png"
+                alt="Fashion Detail">
+
+            </div>
+
+            <div class="fashion-icons">
+
+                <button type="button">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <button type="button">
+                    <i class="fa-regular fa-comment"></i>
+                </button>
+
+                <button type="button">
+                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="fashion-info">
+
+            <div class="designer-box">
+
+                <img
+                id="fotoDesigner"
+                src="../foto/nayla.jpg"
+                alt="Designer Profile">
+
+                <div>
+
+                    <h2 id="namaDesigner">
+                        Tyasshh
+                    </h2>
+
+                    <p id="statsDesigner">
+                        119.8k Followers | 356.7k Likes
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="info-grid">
+
+                <div class="description-block">
+
+                    <h1 id="fashion-title">
+                        Loading...
+                    </h1>
+
+                    <p id="desc">
+                        Elegance Noir Dress is a sophisticated and graceful piece inspired by classic Victorian fashion.
+                    </p>
+
+                </div>
+
+                <div class="detail-block">
+
+                    <h2>Materials</h2>
+
+                    <ul id="materialsList">
+                        <li>Black Lace</li>
+                        <li>Navy Fabric</li>
+                        <li>Sheer Ivory Fabric</li>
+                        <li>Gold Embroidery</li>
+                    </ul>
+
+                </div>
+
+                <div class="detail-block">
+
+                    <h2>Techniques & Details</h2>
+
+                    <ul id="techniquesList">
+                        <li>Intricate embroidery</li>
+                        <li>Layered asymmetrical skirt</li>
+                        <li>Luxury lace overlay</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <button class="ai-btn">
+                Try with AI
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script>
+
+const nama =
+localStorage.getItem("nama");
+
+if(nama){
+
+    document.getElementById("navbar-user").innerText =
+    nama;
+
+}
+
+const params =
+new URLSearchParams(window.location.search);
+
+const id =
+params.get("id");
+
+async function loadFashion(){
+
+    try{
+
+        if(!id){
+            document.getElementById("update-text").innerText =
+            "Last Updated 01 January | Tyasshh";
+
+            return;
+        }
+
+        const response =
+        await fetch(`http://localhost:5000/fashion/${id}`);
+
+        const data =
+        await response.json();
+
+        document.getElementById("judulFashion").innerText =
+        data.judul || "Fashion Detail";
+
+        document.getElementById("fashion-title").innerText =
+        data.judul || "Fashion Detail";
+
+        document.getElementById("desc").innerText =
+        data.deskripsi || "";
+
+        if(data.foto_karya){
+
+            document.getElementById("fotoFashion").src =
+            `../foto/${data.foto_karya}`;
+
+        }
+
+        document.getElementById("namaDesigner").innerText =
+        data.nickname || "Designer";
+
+        document.getElementById("statsDesigner").innerText =
+        `${data.followers || 0} Followers | ${data.likes || 0} Likes`;
+
+        if(data.foto_profile){
+
+            document.getElementById("fotoDesigner").src =
+            `../foto/${data.foto_profile}`;
+
+        }
+
+        const tanggal =
+        new Date(data.tanggal_upload);
+
+        const formatTanggal =
+        tanggal.toLocaleDateString("en-GB", {
+            day:"2-digit",
+            month:"long"
+        });
+
+        document.getElementById("update-text").innerText =
+        `Last Updated ${formatTanggal} | ${data.nickname || "Designer"}`;
+
+    }catch(error){
+
+        console.log(error);
+
+        document.getElementById("update-text").innerText =
+        "Last Updated 01 January | Tyasshh";
+
+    }
+
+}
+
+loadFashion();
+
+</script>
+
+</body>
+</html>

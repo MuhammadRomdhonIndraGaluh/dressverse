@@ -1,0 +1,250 @@
+<!-- event/event.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Event</title>
+
+    <link rel="stylesheet" href="event.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">DressVerse</div>
+
+        <ul class="menu">
+            <li><a href="../home/home.html">Home</a></li>
+            <li><a href="../creatives/creatives.html">Our Creatives</a></li>
+            <li><a href="../gallery/gallery.html">Gallery</a></li>
+            <li><a href="event.html" class="active">Event</a></li>
+            <li><a href="../models/models.html">Join Our Models</a></li>
+        </ul>
+
+        <a href="../login/login.html"
+class="login-btn"
+id="navbar-user">
+
+LOGIN
+
+</a>
+
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <h1>Top Events</h1>
+
+        <!-- MAIN EVENT -->
+        <div id="topEvent"></div>
+
+        <!-- SEARCH -->
+        <div class="search-box">
+            <input type="text" placeholder="Search Event...">
+        </div>
+
+    </section>
+
+    <!-- UPCOMING -->
+    <section class="upcoming">
+
+        <div class="blur blur-left"></div>
+        <div class="blur blur-right"></div>
+
+        <h2>Up Coming Events</h2>
+
+        <!-- CARD -->
+        <div id="eventContainer"></div>
+
+    </section>
+
+</div>
+<script>
+
+const nama = localStorage.getItem("nama");
+
+if(nama){
+    document.getElementById("navbar-user").innerText = nama;
+}
+
+fetch("http://localhost:5000/event")
+
+.then(res => res.json())
+
+.then(data => {
+
+    if(data.length === 0){
+        document.getElementById("topEvent").innerHTML =
+        "<h2>Tidak ada event tersedia</h2>";
+        return;
+    }
+
+    const topEvent = data[0];
+
+    document.getElementById("topEvent").innerHTML = `
+
+    <div class="event-card">
+
+        <div class="event-info">
+
+            <p class="category">
+                Fashion Show
+            </p>
+
+            <h2>
+                ${topEvent.nama_event}
+            </h2>
+
+            <div class="details">
+
+                <span>
+                    📅 ${formatTanggal(topEvent.tanggal)}
+                </span>
+
+                <span>
+                    ⏰ ${topEvent.waktu_mulai}
+                    -
+                    ${topEvent.waktu_selesai}
+                </span>
+
+            </div>
+
+            <div class="buttons">
+
+                <a
+                href="ticket.html?id=${topEvent.id_event}"
+                class="btn-primary"
+                >
+                    Get Tickets
+                </a>
+
+                <button class="btn-secondary">
+                    Register as Designer
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="event-img">
+
+            <img
+            src="http://localhost:5000/uploads/${topEvent.gambar}"
+            alt="${topEvent.nama_event}"
+            >
+
+        </div>
+
+    </div>
+
+    `;
+
+    let html = "";
+
+    function formatTanggal(tanggal){
+
+    return new Date(tanggal)
+    .toLocaleDateString(
+        "id-ID",
+        {
+            day:"numeric",
+            month:"long",
+            year:"numeric"
+        }
+    );
+
+}
+
+    data.slice(1).forEach(event => {
+
+        html += `
+
+        <div class="ticket-card">
+
+            <div class="ticket-hole left"></div>
+
+            <div class="ticket-hole right"></div>
+
+            <div class="ticket-content">
+
+                <div class="ticket-info">
+
+                    <p class="ticket-category">
+                        Fashion Show
+                    </p>
+
+                    <h3>
+                        ${event.nama_event}
+                    </h3>
+
+                    <div class="ticket-detail">
+
+                        <span>
+                            📅 ${formatTanggal(event.tanggal)}
+                        </span>
+
+                        <span>
+                            ⏰ ${event.waktu_mulai}
+                            -
+                            ${event.waktu_selesai}
+                        </span>
+
+                    </div>
+
+                    <div class="ticket-buttons">
+
+                        <a
+                        href="ticket.html?id=${event.id_event}"
+                        class="ticket-btn1"
+                        >
+                            Get Tickets
+                        </a>
+
+                        <button class="ticket-btn2">
+                            Register as Designer
+                        </button>
+
+                        <a href="#">
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="ticket-image">
+
+                    <img
+                    src="http://localhost:5000/uploads/${event.gambar}"
+                    alt="${event.nama_event}"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+    document.getElementById("eventContainer").innerHTML = html;
+
+})
+
+.catch(err => {
+    console.log(err);
+});
+
+</script>
+</body>
+</html>
